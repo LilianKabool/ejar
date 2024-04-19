@@ -1,0 +1,12 @@
+part of 'subscription_cubit.dart';
+
+@freezed
+class SubscriptionState with _$SubscriptionState {
+  const factory SubscriptionState.initial() = _Initial;
+  const factory SubscriptionState.loading() = Loading;
+
+  const factory SubscriptionState.success(BaseSubscriptionsEntity baseSubscriptionsEntity) = Success;
+
+  const factory SubscriptionState.error(NetworkExceptions networkExceptions) =
+      Error;
+}

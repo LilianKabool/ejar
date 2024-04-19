@@ -5,7 +5,7 @@ import 'package:dio/io.dart';
 import 'package:ejar_v/data/model/error_model.dart';
 import 'package:ejar_v/data/model/login_model.dart';
 
-import '../../constant/end_points.dart';
+import '../../core/constant/end_points.dart';
 
 class LoginWebService {
   late Dio dio;

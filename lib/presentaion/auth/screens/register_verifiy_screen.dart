@@ -2,7 +2,7 @@
 import 'package:ejar_v/bussiness_logic/verifiy_code/verifiy_code_cubit.dart';
 import 'package:ejar_v/bussiness_logic/verifiy_code/verifiy_code_state.dart';
 import 'package:ejar_v/components.dart';
-import 'package:ejar_v/constant/colors.dart';
+import 'package:ejar_v/core/constant/colors.dart';
 import 'package:ejar_v/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

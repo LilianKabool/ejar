@@ -9,7 +9,7 @@ import '../../../bussiness_logic/login/login_state.dart';
 import '../../../bussiness_logic/login/visibility_password_cubit.dart';
 import '../../../bussiness_logic/login/visibility_password_state.dart';
 import '../../../components.dart';
-import '../../../constant/colors.dart';
+import '../../../core/constant/colors.dart';
 import '../../../data/model/network_exceptions.dart';
 import '../widgets/forget_password_text.dart';
 import '../widgets/image_for_logo.dart';

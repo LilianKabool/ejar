@@ -2,7 +2,7 @@ import 'package:ejar_v/bussiness_logic/login/visibility_password_cubit.dart';
 import 'package:ejar_v/bussiness_logic/login/visibility_password_state.dart';
 import 'package:ejar_v/bussiness_logic/reset_password/reset_password_cubit.dart';
 import 'package:ejar_v/bussiness_logic/reset_password/reset_password_state.dart';
-import 'package:ejar_v/constant/colors.dart';
+import 'package:ejar_v/core/constant/colors.dart';
 import 'package:ejar_v/injection.dart';
 import 'package:ejar_v/presentaion/auth/screens/forget_password.dart';
 import 'package:ejar_v/presentaion/auth/screens/main_screen.dart';

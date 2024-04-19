@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:ejar_v/constant/end_points.dart';
+import 'package:ejar_v/core/constant/end_points.dart';
 
 class ForgetPasswordWebService {
   late Dio dio;

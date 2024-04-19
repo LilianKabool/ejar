@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../bussiness_logic/forget_password/forget_password_cubit.dart';
 import '../../../bussiness_logic/forget_password/forget_password_state.dart';
 import '../../../components.dart';
-import '../../../constant/colors.dart';
+import '../../../core/constant/colors.dart';
 import '../../../data/model/network_exceptions.dart';
 import '../../../injection.dart';
 import 'found_account.dart';

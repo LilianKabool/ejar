@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../bussiness_logic/verifiy_code/verifiy_code_cubit.dart';
 import '../../../bussiness_logic/verifiy_code/verifiy_code_state.dart';
 import '../../../components.dart';
-import '../../../constant/colors.dart';
+import '../../../core/constant/colors.dart';
 import '../../../data/model/network_exceptions.dart';
 import '../../../injection.dart';
 import 'forget_password.dart';
