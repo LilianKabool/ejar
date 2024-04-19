@@ -1,6 +1,6 @@
 import 'package:ejar_v/core/params/get_subscription_params.dart';
 import 'package:ejar_v/injection_container.dart';
-import 'package:ejar_v/presentaion/owner/manager/cubit/processing_orders_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/processing_orders_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/my_products_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/my_subscription_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/subscription_cubit.dart';

@@ -11,14 +11,14 @@ import 'login_state.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginRepository loginRepository;
 
-  LoginCubit(this.loginRepository) : super(Idel());
+  LoginCubit(this.loginRepository) : super(const Idel());
 
   emitLogin(email, password) async {
-    emit(LoginState.loading());
+    emit(const LoginState.loading());
     final response = await loginRepository.login(email, password);
     print("this result in cubit $response");
     response.when(success: (data) async {
-      WidgetsFlutterBinding.ensureInitialized();
+      // WidgetsFlutterBinding.ensureInitialized();
       final pref = await SharedPreferences.getInstance();
       print("here is token before set ${data['token']}");
       pref.setString("token", "${data['token']}");
@@ -26,7 +26,7 @@ class LoginCubit extends Cubit<LoginState> {
       emit(
         LoginState.success(data),);
 
-    }, faliure: ( networkExceptions) {
+    }, faliure: (networkExceptions) {
       print("this is error in repo $networkExceptions");
       emit(
         LoginState.error(networkExceptions),

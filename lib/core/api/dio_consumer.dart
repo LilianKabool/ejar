@@ -9,6 +9,26 @@ import 'package:ejar_v/core/constant/strings_constants.dart';
 import 'package:ejar_v/injection_container.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+
+
+
+@singleton
+class ErrorInterceptor extends Interceptor {
+  @override
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
+    final status = response.statusCode;
+    final isValid = status != null && status >= 200 && status < 300;
+    if (!isValid) {
+      throw DioException.badResponse(
+        statusCode: status!,
+        requestOptions: response.requestOptions,
+        response: response,
+      );
+    }
+    super.onResponse(response, handler);
+  }
+}
+
 @Singleton(as: ApiConsumer)
 class DioConsumer implements ApiConsumer {
   DioConsumer(
@@ -23,23 +43,20 @@ class DioConsumer implements ApiConsumer {
       ..followRedirects = true;
     if (kDebugMode) {
       _client.interceptors
-          .addAll([getItMhamad<LoggingInterceptor>(),
-          // getIt<ErrorInterceptor>()
-          ]);
+          .addAll([getItMhamad<LoggingInterceptor>(), getItMhamad<ErrorInterceptor>()]);
     }
   }
   final Dio _client;
   late Map<String, String> _headers;
 
-  void setHeaders() async {
+ void setHeaders() async {
     _headers = {
       StringsConstants.accept: StringsConstants.applicationJson,
       StringsConstants.contentType: StringsConstants.applicationJson,
-      StringsConstants.authToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvbW9iaWxlL2xvZ2luIiwiaWF0IjoxNzEwNTI4MjE0LCJleHAiOjIwMjU4ODgyMTQsIm5iZiI6MTcxMDUyODIxNCwianRpIjoiN3B0M3BxUjlpUUFVMnlXayIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.bM4rZWG6tJ3Ig0VCw_fH1Mrb-OzNPNV2sVzn0e2X1vw",
-    StringsConstants.lang:"ar",
+    //   StringsConstants.authToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvbW9iaWxlL2xvZ2luIiwiaWF0IjoxNzEwNTI4MjE0LCJleHAiOjIwMjU4ODgyMTQsIm5iZiI6MTcxMDUyODIxNCwianRpIjoiN3B0M3BxUjlpUUFVMnlXayIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.bM4rZWG6tJ3Ig0VCw_fH1Mrb-OzNPNV2sVzn0e2X1vw",
+    // StringsConstants.lang:"ar",
     };
   }
-
   @override
   Future get(
     String path, {
@@ -55,10 +72,14 @@ class DioConsumer implements ApiConsumer {
         cancelToken: cancelToken,
         options: Options(
           headers: _headers,
+          validateStatus: (int? status) {
+            return status != null;
+          },
         ),
       );
       return _handleResponseAsJson(response);
     } catch (error) {
+      print("ssssssssssssssssssssssssssssssssssssssssss$error");
       rethrow;
     }
   }
@@ -69,6 +90,7 @@ class DioConsumer implements ApiConsumer {
     dynamic body,
     String? token,
     FormData? formData,
+    ResponseType? responseType,
     Map<String, dynamic>? queryParameters,
   }) async {
     setHeaders();
@@ -79,8 +101,12 @@ class DioConsumer implements ApiConsumer {
         queryParameters: queryParameters,
         options: Options(
           headers: _headers,
+          validateStatus: (int? status) {
+            return status != null;
+          },
           contentType:
               formData == null ? StringsConstants.jsonContentType : null,
+          responseType: responseType,
         ),
         data: formData ?? body,
       );

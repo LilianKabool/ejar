@@ -3,8 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part'error_model.g.dart';
 @JsonSerializable()
 class ErrorModel {
-  String message;
-  Errors errors;
+  final String message;
+ final Errors? errors;
 
   ErrorModel({
     required this.message,
@@ -19,13 +19,13 @@ class ErrorModel {
 }
 @JsonSerializable()
 class Errors {
-  List<String> password;
-  List<String> email;
+ final List<String>? password;
+ final List<String>? email;
 
-  Errors({
-    required this.password,
-    required this.email,
-  });
+  Errors(
+     this.password,
+     this.email,
+  );
   factory Errors.fromJson(Map<String, dynamic> json) =>
       _$ErrorsFromJson(json);
 

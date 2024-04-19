@@ -8,7 +8,9 @@ part of 'error_model.dart';
 
 ErrorModel _$ErrorModelFromJson(Map<String, dynamic> json) => ErrorModel(
       message: json['message'] as String,
-      errors: Errors.fromJson(json['errors'] as Map<String, dynamic>),
+      errors: json['errors'] == null
+          ? null
+          : Errors.fromJson(json['errors'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ErrorModelToJson(ErrorModel instance) =>
@@ -18,9 +20,8 @@ Map<String, dynamic> _$ErrorModelToJson(ErrorModel instance) =>
     };
 
 Errors _$ErrorsFromJson(Map<String, dynamic> json) => Errors(
-      password:
-          (json['password'] as List<dynamic>).map((e) => e as String).toList(),
-      email: (json['email'] as List<dynamic>).map((e) => e as String).toList(),
+      (json['password'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      (json['email'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$ErrorsToJson(Errors instance) => <String, dynamic>{

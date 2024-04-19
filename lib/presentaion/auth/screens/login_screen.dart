@@ -1,8 +1,10 @@
 
 
+import 'package:ejar_v/presentaion/owner/manager/cubit/user_log_in_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../bussiness_logic/login/login_cubit.dart';
 import '../../../bussiness_logic/login/login_state.dart';
@@ -163,7 +165,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: 20.0.h,
               ),
-              BlocConsumer<LoginCubit, LoginState>(
+              BlocConsumer<UserLogInCubit, UserLogInState>(
                 listener: (context, state) {
                   state.whenOrNull(
                     success: (loginModel) {
@@ -175,7 +177,7 @@ class LoginScreen extends StatelessWidget {
                       return showAlertDialog(
                           context, "Logged in successfully!");
                     },
-                    error: (  error) {
+                    error: (error) {
                       return showAlertDialog(
                           context, NetworkExceptions.getErrorMessage(error));
                     },
@@ -183,6 +185,7 @@ class LoginScreen extends StatelessWidget {
                 },
                 builder: (context, state) {
                   return state.maybeWhen(
+                   
                     orElse: () {
                       return Padding(
                         padding: const EdgeInsets.only(
@@ -212,9 +215,9 @@ class LoginScreen extends StatelessWidget {
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   var result =
-                                  BlocProvider.of<LoginCubit>(context)
-                                      .emitLogin(emailController.text,
-                                      passwordController.text);
+                                        BlocProvider.of<UserLogInCubit>(context)
+                                      .emitLogInUser(email:emailController.text,
+                                    password:   passwordController.text);
                                   return result;
                                 } else {
                                   print('null ');
@@ -223,7 +226,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       );
                     },
-                    idel: () {
+                    initial: () {
                       return Padding(
                         padding: const EdgeInsets.only(
                           left: 20.0,
@@ -252,9 +255,9 @@ class LoginScreen extends StatelessWidget {
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   var result =
-                                  BlocProvider.of<LoginCubit>(context)
-                                      .emitLogin(emailController.text,
-                                      passwordController.text);
+                                         BlocProvider.of<UserLogInCubit>(context)
+                                      .emitLogInUser(email:emailController.text,
+                                    password:   passwordController.text);
                                   return result;
                                 }
                                 else {
@@ -292,7 +295,17 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
-
+ void showToast(String message) {
+    Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
+  }
   showAlertDialog(BuildContext context, message) {
     AlertDialog alert = AlertDialog(
       content: text(
