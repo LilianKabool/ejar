@@ -1,9 +1,9 @@
-import 'package:ejar_v/components.dart';
-import 'package:ejar_v/constant/colors.dart';
+
 import 'package:ejar_v/presentaion/auth/screens/forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/constant/colors.dart';
 import '../screens/resend_otp.dart';
 
 Widget forgetPasswordText(context) {

@@ -1,24 +1,22 @@
 import 'dart:ui';
 
-import 'package:ejar_v/bussiness_logic/Drop_down_button/drop_down_button_cubit.dart';
-import 'package:ejar_v/bussiness_logic/Drop_down_button/drop_down_button_state.dart';
-import 'package:ejar_v/bussiness_logic/checkBox/check_box_cubit.dart';
-import 'package:ejar_v/bussiness_logic/checkBox/check_box_state.dart';
-import 'package:ejar_v/bussiness_logic/login/visibility_password_cubit.dart';
-import 'package:ejar_v/bussiness_logic/login/visibility_password_state.dart';
-import 'package:ejar_v/bussiness_logic/register/register_cubit.dart';
-import 'package:ejar_v/bussiness_logic/register/register_state.dart';
-import 'package:ejar_v/components.dart';
-import 'package:ejar_v/constant/colors.dart';
-import 'package:ejar_v/injection.dart';
 import 'package:ejar_v/presentaion/auth/screens/login_screen.dart';
 import 'package:ejar_v/presentaion/auth/screens/register_verifiy_screen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../data/model/network_exceptions.dart';
+import '../../../components.dart';
+import '../../../core/constant/colors.dart';
+import '../../../network_exceptions.dart';
+import '../manager/check_box/check_box_cubit.dart';
+import '../manager/check_box/check_box_state.dart';
+import '../manager/drop_down_button/drop_down_button_cubit.dart';
+import '../manager/drop_down_button/drop_down_button_state.dart';
+import '../manager/register/register_cubit.dart';
+import '../manager/register/register_state.dart';
+import '../manager/visibality_password/visibility_password_cubit.dart';
+import '../manager/visibality_password/visibility_password_state.dart';
 
 class SignUpScreen extends StatelessWidget {
   bool passwordVisible = true;
@@ -35,19 +33,7 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getIt<CheckBoxCubit>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<DropDownButtonCubit>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<RegisterCubit>(),
-        ),
-      ],
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text(
             'Sign Up',
@@ -288,12 +274,11 @@ class SignUpScreen extends StatelessWidget {
                         ),
                         suffixIcon: IconButton(
                           onPressed: () {
-
                             BlocProvider.of<VisibilityPasswordCubit>(context)
                                 .emitChangeVisibilityPassword();
                             passwordVisible =
                                 BlocProvider.of<VisibilityPasswordCubit>(
-                                    context)
+                                        context)
                                     .password;
                           },
                           icon: Icon(
@@ -445,7 +430,6 @@ class SignUpScreen extends StatelessWidget {
                   );
                 },
               ),
-
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                 child: Row(
@@ -544,31 +528,34 @@ class SignUpScreen extends StatelessWidget {
                       success: (registerModel) {
                         Navigator.pushReplacement(
                             context,
-                             MaterialPageRoute(
-                              builder: (context) =>  RegisterVerifiyScreen(),
+                            MaterialPageRoute(
+                              builder: (context) => RegisterVerifiyScreen(),
                             ));
                         return showAlertDialog(
                             context, registerModel.toString());
                       },
                       error: (error) {
                         return showAlertDialog(
-                            context,NetworkExceptions.getErrorMessage(error));
+                            context, NetworkExceptions.getErrorMessage(error));
                       },
                     );
                   },
                   builder: (context, state) {
                     return state.maybeWhen(
                       orElse: () {
-                        return   GestureDetector(
+                        return GestureDetector(
                           onTap: () {
                             if (formKey.currentState!.validate()) {
-                              var result = BlocProvider.of<RegisterCubit>(context)
+                              var result =context
+                                  .read<RegisterCubit>()
                                   .emitRegister(
-                                first_name.text,
-                                last_name.text,
-                                email_adress.text,
-                                password.text,
+                               password:  password.text,
+                                lastName: last_name.text,
+                                firstName:  first_name.text,
+                                email:  email_adress.text,
+
                               );
+
                               return result;
                             } else {
                               print('null ');
@@ -601,16 +588,20 @@ class SignUpScreen extends StatelessWidget {
                         );
                       },
                       idel: () {
-                        return   GestureDetector(
+                        return GestureDetector(
                           onTap: () {
                             if (formKey.currentState!.validate()) {
-                              var result = BlocProvider.of<RegisterCubit>(context)
+                              var result =
+                              context
+                                  .read<RegisterCubit>()
                                   .emitRegister(
-                                first_name.text,
-                                last_name.text,
-                                email_adress.text,
-                                password.text,
+                                password:  password.text,
+                                lastName: last_name.text,
+                                firstName:  first_name.text,
+                                email:  email_adress.text,
+
                               );
+
                               return result;
                             } else {
                               print('null ');
@@ -646,16 +637,15 @@ class SignUpScreen extends StatelessWidget {
                         return const CircularProgressIndicator();
                       },
                     );
-
                   },
                 ),
               ),
             ],
           ),
         ),
-      ),
-    );
+      );
   }
+
   showAlertDialog(BuildContext context, message) {
     AlertDialog alert = AlertDialog(
       content: text(
@@ -669,5 +659,4 @@ class SignUpScreen extends StatelessWidget {
       },
     );
   }
-
 }

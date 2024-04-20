@@ -1,6 +1,7 @@
 
 import 'package:ejar_v/components.dart';
-import 'package:ejar_v/constant/colors.dart';
+
+import '../../../core/constant/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

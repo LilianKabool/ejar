@@ -1,4 +1,5 @@
-import 'package:ejar_v/constant/colors.dart';
+
+import '../../../core/constant/colors.dart';
 import 'package:ejar_v/presentaion/auth/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
