@@ -1,6 +1,15 @@
+import 'package:dio/dio.dart';
 import 'package:ejar_v/core/api/api_consumer.dart';
 import 'package:ejar_v/core/constant/end_points.dart';
+import 'package:ejar_v/core/params/add_photo_to_product_params.dart';
+import 'package:ejar_v/core/params/get_category_attribute_params.dart';
 import 'package:ejar_v/core/params/get_subscription_params.dart';
+import 'package:ejar_v/core/params/set_card_info_params.dart';
+import 'package:ejar_v/core/params/subscripe_params.dart';
+import 'package:ejar_v/core/params/update_product_params.dart';
+import 'package:ejar_v/data/owner/entity/active_subscription_entity.dart';
+import 'package:ejar_v/data/owner/entity/base_entity.dart';
+import 'package:ejar_v/data/owner/entity/get_category_attribute_entity.dart';
 import 'package:ejar_v/data/owner/entity/my_products_entity.dart';
 import 'package:ejar_v/data/owner/entity/my_subscription_entity.dart';
 import 'package:ejar_v/data/owner/entity/processing_orders_entity.dart';
@@ -12,6 +21,12 @@ abstract class OwnerBaseWebServices{
   Future<MySubscriptionEntity> mySubscription();
     Future<BaseMyProductEntity> myProducts();
     Future<ProcessingOrdersEntity> processingOrders();
+    Future<BaseEntity> setCardInfo(SetCardInfoParams setCardInfoParams);
+    Future<BaseEntity> subscripe(SubscripeParams subscripeParams);
+    Future<BaseActiveSubscriptionEntity> activeSubscription();
+    Future<GetCategoryAttributesEntity> getCategoryAttributes(GetCategoryAttributeParams getCategoryAttributeParams);
+    Future<BaseEntity> addPhotoToProduct(AddPhotoToProductParams addPhotoToProductParams);
+    Future<BaseEntity> updateProduct(UpdateProductParams updateProductParams);
 
 
 }
@@ -44,7 +59,81 @@ class OwnerWebServicesImpl implements OwnerBaseWebServices{
      final response = await _apiConsumer.get(EndPoints.processingOrders,);
     return ProcessingOrdersEntity.fromJson(response);
   }
+  
+  @override
+  Future<BaseEntity> setCardInfo(SetCardInfoParams setCardInfoParams) async{
+   final response = await _apiConsumer.post(EndPoints.setCardInfo,queryParameters: setCardInfoParams.toJson());
+    return BaseEntity.fromJson(response);
+  }
+  
+  @override
+  Future<BaseEntity> subscripe(SubscripeParams subscripeParams) async{
+      final response = await _apiConsumer.post(EndPoints.subscripe,queryParameters: subscripeParams.toJson());
+    return BaseEntity.fromJson(response);
+  }
+  
+  @override
+  Future<BaseActiveSubscriptionEntity> activeSubscription() async{
+          final response = await _apiConsumer.post(EndPoints.activeSubscription);
+    return BaseActiveSubscriptionEntity.fromJson(response);
+  }
+  
+  @override
+  Future<GetCategoryAttributesEntity> getCategoryAttributes(GetCategoryAttributeParams getCategoryAttributeParams) async{
+        final response = await _apiConsumer.post(EndPoints.getCategoryAttributes,queryParameters: getCategoryAttributeParams.toJson());
+    return GetCategoryAttributesEntity.fromJson(response);
+  }
+    Future<FormData> formAddFile(AddPhotoToProductParams addPhotoToProductParams) async {
+    final formData = FormData.fromMap({
+      'path': await MultipartFile.fromFile(addPhotoToProductParams.photo.path),
+    });
 
+    return formData;
+  }
+
+  @override
+  Future<BaseEntity> addPhotoToProduct(AddPhotoToProductParams addPhotoToProductParams) async{
+   final formData = await formAddFile(addPhotoToProductParams);
+
+    final response = await _apiConsumer.post(
+      EndPoints.addPhotoToProduct,
+      body: formData,
+    );
+
+    return BaseEntity.fromJson(response);
+
+  }
+  
+Future<FormData> formUpdateData(UpdateProductParams updateProductParams) async {
+  final formData = FormData.fromMap({
+    'product_id': updateProductParams.productId,
+    'name': updateProductParams.name,
+    'name_en': updateProductParams.engilshName,
+    'description': updateProductParams.description,
+    'description_en': updateProductParams.englishDescription,
+    'price': updateProductParams.price,
+    'country_id': updateProductParams.countryId,
+    'city_id': updateProductParams.cityId,
+    'start_date': updateProductParams.startDate,
+    'attribute_ids': updateProductParams.attributeIds,
+    'attribute_values': updateProductParams.attributeValues,
+    'photo': await MultipartFile.fromFile(updateProductParams.photo.path),
+  });
+
+  return formData;
+}
+
+@override
+Future<BaseEntity> updateProduct(UpdateProductParams updateProductParams) async {
+  final formData = await formUpdateData(updateProductParams);
+
+  final response = await _apiConsumer.post(
+    EndPoints.updateProduct,
+    body: formData,
+  );
+
+  return BaseEntity.fromJson(response);
+}
 
 
 }

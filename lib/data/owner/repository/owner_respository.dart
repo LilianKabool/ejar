@@ -1,7 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:ejar_v/core/network/network_info.dart';
+import 'package:ejar_v/core/params/add_photo_to_product_params.dart';
+import 'package:ejar_v/core/params/get_category_attribute_params.dart';
 import 'package:ejar_v/core/params/get_subscription_params.dart';
+import 'package:ejar_v/core/params/set_card_info_params.dart';
+import 'package:ejar_v/core/params/subscripe_params.dart';
+import 'package:ejar_v/core/params/update_product_params.dart';
 import 'package:ejar_v/data/model/network_exceptions.dart';
+import 'package:ejar_v/data/owner/entity/active_subscription_entity.dart';
+import 'package:ejar_v/data/owner/entity/base_entity.dart';
+import 'package:ejar_v/data/owner/entity/get_category_attribute_entity.dart';
 import 'package:ejar_v/data/owner/entity/my_products_entity.dart';
 import 'package:ejar_v/data/owner/entity/my_subscription_entity.dart';
 import 'package:ejar_v/data/owner/entity/processing_orders_entity.dart';
@@ -14,7 +22,12 @@ abstract class OwnerBaseRepository{
     Future<Either<NetworkExceptions, MySubscriptionEntity>> mySubscriptions();
     Future<Either<NetworkExceptions, BaseMyProductEntity>> myProducts();
     Future<Either<NetworkExceptions, ProcessingOrdersEntity>> processingOrders();
-
+    Future<Either<NetworkExceptions, BaseEntity>> setCardInfo(SetCardInfoParams setCardInfoParams);
+    Future<Either<NetworkExceptions, BaseEntity>> subscripe(SubscripeParams subscripeParams);
+    Future<Either<NetworkExceptions, BaseActiveSubscriptionEntity>> activeSubscription();
+    Future<Either<NetworkExceptions, GetCategoryAttributesEntity>> getCategoryAttribute(GetCategoryAttributeParams getCategoryAttributeParams);
+    Future<Either<NetworkExceptions, BaseEntity>> addPhotoToProduct(AddPhotoToProductParams addPhotoToProductParams);
+    Future<Either<NetworkExceptions, BaseEntity>> updateProduct(UpdateProductParams updateProductParams);
 }
 @Singleton(as: OwnerBaseRepository)
 class OwnerRepositoryImpl implements OwnerBaseRepository{
@@ -69,6 +82,90 @@ class OwnerRepositoryImpl implements OwnerBaseRepository{
     try{
       if(await _networkInfo.isConnected){
         final response = await _ownerBaseWebServices.processingOrders();
+        return Right(response);
+      }else{
+        return const Left(NetworkExceptions.noInternetConnection());
+      }
+    } on Exception catch (ex){
+      return Left(NetworkExceptions.getDioException(ex));
+    }
+  }
+  
+  @override
+  Future<Either<NetworkExceptions, BaseEntity>> setCardInfo(SetCardInfoParams setCardInfoParams) async{
+     try{
+      if(await _networkInfo.isConnected){
+        final response = await _ownerBaseWebServices.setCardInfo(setCardInfoParams);
+        return Right(response);
+      }else{
+        return const Left(NetworkExceptions.noInternetConnection());
+      }
+    } on Exception catch (ex){
+      return Left(NetworkExceptions.getDioException(ex));
+    }
+  }
+  
+  @override
+  Future<Either<NetworkExceptions, BaseEntity>> subscripe(SubscripeParams subscripeParams) async{
+     try{
+      if(await _networkInfo.isConnected){
+        final response = await _ownerBaseWebServices.subscripe(subscripeParams);
+        return Right(response);
+      }else{
+        return const Left(NetworkExceptions.noInternetConnection());
+      }
+    } on Exception catch (ex){
+      return Left(NetworkExceptions.getDioException(ex));
+    }
+  }
+  
+  @override
+  Future<Either<NetworkExceptions, BaseActiveSubscriptionEntity>> activeSubscription() async{
+     try{
+      if(await _networkInfo.isConnected){
+        final response = await _ownerBaseWebServices.activeSubscription();
+        return Right(response);
+      }else{
+        return const Left(NetworkExceptions.noInternetConnection());
+      }
+    } on Exception catch (ex){
+      return Left(NetworkExceptions.getDioException(ex));
+    }
+  }
+  
+  @override
+  Future<Either<NetworkExceptions, GetCategoryAttributesEntity>> getCategoryAttribute(GetCategoryAttributeParams getCategoryAttributeParams) async{
+     try{
+      if(await _networkInfo.isConnected){
+        final response = await _ownerBaseWebServices.getCategoryAttributes(getCategoryAttributeParams);
+        return Right(response);
+      }else{
+        return const Left(NetworkExceptions.noInternetConnection());
+      }
+    } on Exception catch (ex){
+      return Left(NetworkExceptions.getDioException(ex));
+    }
+  }
+  
+  @override
+  Future<Either<NetworkExceptions, BaseEntity>> addPhotoToProduct(AddPhotoToProductParams addPhotoToProductParams)async {
+       try{
+      if(await _networkInfo.isConnected){
+        final response = await _ownerBaseWebServices.addPhotoToProduct(addPhotoToProductParams);
+        return Right(response);
+      }else{
+        return const Left(NetworkExceptions.noInternetConnection());
+      }
+    } on Exception catch (ex){
+      return Left(NetworkExceptions.getDioException(ex));
+    }
+  }
+  
+  @override
+  Future<Either<NetworkExceptions, BaseEntity>> updateProduct(UpdateProductParams updateProductParams) async{
+     try{
+      if(await _networkInfo.isConnected){
+        final response = await _ownerBaseWebServices.updateProduct(updateProductParams);
         return Right(response);
       }else{
         return const Left(NetworkExceptions.noInternetConnection());

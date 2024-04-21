@@ -1,6 +1,6 @@
 
 
-import 'package:ejar_v/presentaion/owner/manager/cubit/user_log_in_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/user_log_in_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -82,11 +82,11 @@ class ProductData {
   // final List<ReservedDate> reservedDates;
   @JsonKey(name: "attributes")
   final List<Attribute> attributes;
+  ProductData(this.id, this.userId, this.countryId, this.cityId, this.regionId, this.name, this.englishName, this.price, this.active, this.locked, this.description, this.englishDescription, this.startDate, this.endDate, this.categoryId, this.image, this.priceUnit, this.countryName, this.englishCountryName, this.cityName, this.englishCityName, this.regionName, this.englishRegionName, this.photos, this.attributes);
 
   factory ProductData.fromJson(Map<String, dynamic> json) =>
       _$ProductDataFromJson(json);
 
-  ProductData(this.id, this.userId, this.countryId, this.cityId, this.regionId, this.name, this.englishName, this.price, this.active, this.locked, this.description, this.englishDescription, this.startDate, this.endDate, this.categoryId, this.image, this.priceUnit, this.countryName, this.englishCountryName, this.cityName, this.englishCityName, this.regionName, this.englishRegionName, this.photos, this.attributes);
 
   Map<String, dynamic> toJson() => _$ProductDataToJson(this);
 }

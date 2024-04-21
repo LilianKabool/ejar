@@ -53,8 +53,8 @@ class DioConsumer implements ApiConsumer {
     _headers = {
       StringsConstants.accept: StringsConstants.applicationJson,
       StringsConstants.contentType: StringsConstants.applicationJson,
-    //   StringsConstants.authToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvbW9iaWxlL2xvZ2luIiwiaWF0IjoxNzEwNTI4MjE0LCJleHAiOjIwMjU4ODgyMTQsIm5iZiI6MTcxMDUyODIxNCwianRpIjoiN3B0M3BxUjlpUUFVMnlXayIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.bM4rZWG6tJ3Ig0VCw_fH1Mrb-OzNPNV2sVzn0e2X1vw",
-    // StringsConstants.lang:"ar",
+      StringsConstants.authToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvbW9iaWxlL2xvZ2luIiwiaWF0IjoxNzEwNTI4MjE0LCJleHAiOjIwMjU4ODgyMTQsIm5iZiI6MTcxMDUyODIxNCwianRpIjoiN3B0M3BxUjlpUUFVMnlXayIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.bM4rZWG6tJ3Ig0VCw_fH1Mrb-OzNPNV2sVzn0e2X1vw",
+    StringsConstants.lang:"ar",
     };
   }
   @override

@@ -3,7 +3,13 @@ import 'package:ejar_v/injection_container.dart';
 import 'package:ejar_v/presentaion/auth/screens/login_screen.dart';
 import 'package:ejar_v/presentaion/auth/screens/main_screen.dart';
 import 'package:ejar_v/presentaion/auth/screens/splash_screen.dart';
-import 'package:ejar_v/presentaion/owner/manager/cubit/user_log_in_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/active_subscription_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/add_photo_to_product_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/cubit/update_product_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/set_card_info_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/get_category_attributes_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/subscripe_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/user_log_in_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/processing_orders_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/my_products_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/my_subscription_cubit.dart';
@@ -47,6 +53,12 @@ class MyApp extends StatelessWidget {
                     BlocProvider(create: (context) => getItMhamad<MyProductsCubit>(),),
                     BlocProvider(create: (context) => getItMhamad<ProcessingOrdersCubit>(),),
                     BlocProvider(create: (context) => getItMhamad<UserLogInCubit>(),),
+                    BlocProvider(create: (context) => getItMhamad<SubscripeCubit>(),),
+                    BlocProvider(create: (context) => getItMhamad<ActiveSubscriptionCubit>(),),
+                    BlocProvider(create: (context) => getItMhamad<SetCardInfoCubit>(),),
+                    BlocProvider(create: (context) => getItMhamad<AddPhotoToProductCubit>(),),
+                    BlocProvider(create: (context) => getItMhamad<GetCategoryAttributesCubit>(),),
+                    BlocProvider(create: (context) => getItMhamad<UpdateProductCubit>(),),
 
           BlocProvider(create: (context) => getIt<VisibilityPasswordCubit>(),),
         ],
