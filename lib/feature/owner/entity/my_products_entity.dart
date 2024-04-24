@@ -5,12 +5,12 @@ part 'my_products_entity.g.dart';
 class BaseMyProductEntity{
   @JsonKey(name: "message")
   final String message;
-    @JsonKey(name: "data")
+  @JsonKey(name: "data")
   final List<ProductEntity> products;
 
   BaseMyProductEntity(this.message, this.products);
 
-   factory BaseMyProductEntity.fromJson(Map<String, dynamic> json) =>
+  factory BaseMyProductEntity.fromJson(Map<String, dynamic> json) =>
       _$BaseMyProductEntityFromJson(json);
 
   Map<String, dynamic> toJson() => _$BaseMyProductEntityToJson(this);
@@ -82,11 +82,11 @@ class ProductData {
   // final List<ReservedDate> reservedDates;
   @JsonKey(name: "attributes")
   final List<Attribute> attributes;
+  ProductData(this.id, this.userId, this.countryId, this.cityId, this.regionId, this.name, this.englishName, this.price, this.active, this.locked, this.description, this.englishDescription, this.startDate, this.endDate, this.categoryId, this.image, this.priceUnit, this.countryName, this.englishCountryName, this.cityName, this.englishCityName, this.regionName, this.englishRegionName, this.photos, this.attributes);
 
   factory ProductData.fromJson(Map<String, dynamic> json) =>
       _$ProductDataFromJson(json);
 
-  ProductData(this.id, this.userId, this.countryId, this.cityId, this.regionId, this.name, this.englishName, this.price, this.active, this.locked, this.description, this.englishDescription, this.startDate, this.endDate, this.categoryId, this.image, this.priceUnit, this.countryName, this.englishCountryName, this.cityName, this.englishCityName, this.regionName, this.englishRegionName, this.photos, this.attributes);
 
   Map<String, dynamic> toJson() => _$ProductDataToJson(this);
 }
@@ -99,10 +99,10 @@ class Attribute {
   final int productId;
   @JsonKey(name: 'attribute_id')
   final int attributeId;
-    @JsonKey(name: 'value')
+  @JsonKey(name: 'value')
 
   final String value;
-    @JsonKey(name: 'name')
+  @JsonKey(name: 'name')
 
   final String name;
   @JsonKey(name: 'name_en')
@@ -111,7 +111,7 @@ class Attribute {
   final String dataType;
   @JsonKey(name: 'data_value')
   final String dataValue;
-    @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon')
 
   final String icon;
 
@@ -125,12 +125,12 @@ class Attribute {
 }
 @JsonSerializable()
 class Photo {
-    @JsonKey(name: 'id')
+  @JsonKey(name: 'id')
 
   final int id;
   @JsonKey(name: 'product_id')
   final int productId;
-    @JsonKey(name: 'photo')
+  @JsonKey(name: 'photo')
 
   final String photo;
 

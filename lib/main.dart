@@ -4,17 +4,23 @@ import 'package:ejar_v/presentaion/auth/manager/check_box/check_box_cubit.dart';
 import 'package:ejar_v/presentaion/auth/manager/drop_down_button/drop_down_button_cubit.dart';
 
 import 'package:ejar_v/presentaion/auth/manager/forget_password/forget_password_cubit.dart';
-import 'package:ejar_v/presentaion/auth/manager/login/user_log_in_cubit.dart';
+import 'package:ejar_v/presentaion/auth/manager/login/auth_log_in_cubit.dart';
 import 'package:ejar_v/presentaion/auth/manager/register/register_cubit.dart';
 import 'package:ejar_v/presentaion/auth/manager/resend_otp/resend_otp_cubit.dart';
 import 'package:ejar_v/presentaion/auth/manager/reset_password/reset_password_cubit.dart';
 import 'package:ejar_v/presentaion/auth/manager/verify_code/verifiy_code_cubit.dart';
 import 'package:ejar_v/presentaion/auth/manager/visibality_password/visibility_password_cubit.dart';
 import 'package:ejar_v/presentaion/auth/screens/splash_screen.dart';
+import 'package:ejar_v/presentaion/owner/manager/active_subscription_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/add_photo_to_product_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/get_category_attributes_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/my_products_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/my_subscription_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/processing_orders_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/set_card_info_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/subscripe_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/subscription_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/update_product_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -78,6 +84,24 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => getItMhamad<RegisterCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getItMhamad<SubscripeCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getItMhamad<ActiveSubscriptionCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getItMhamad<SetCardInfoCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getItMhamad<AddPhotoToProductCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getItMhamad<GetCategoryAttributesCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getItMhamad<UpdateProductCubit>(),
           ),
         ],
         child: MaterialApp(

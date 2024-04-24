@@ -15,9 +15,9 @@ import '../../../core/network/network_info.dart';
 import '../../../network_exceptions.dart';
 import '../entity/reset_password/reset_password_entity.dart';
 import '../entity/verify_otp/verify_otp_entity.dart';
-import '../web_services/user_web_services.dart';
+import '../web_services/auth_web_services.dart';
 
-abstract class UserBaseRepository {
+abstract class AuthBaseRepository {
   Future<Either<NetworkExceptions, LoginEntity>> login(LoginParams loginParams);
 
   Future<Either<NetworkExceptions, RegisterEntity>> register(
@@ -36,15 +36,15 @@ abstract class UserBaseRepository {
       ResetPasswordParams resetPasswordParams);
 }
 
-@Singleton(as: UserBaseRepository)
-class UserRepositoryImpl implements UserBaseRepository {
-  final UserBaseWebServices _userBaseWebServices;
+@Singleton(as: AuthBaseRepository)
+class AuthRepositoryImpl implements AuthBaseRepository {
+  final AuthBaseWebServices _authBaseWebServices;
   final NetworkInfo _networkInfo;
 
-  UserRepositoryImpl(
-      {required UserBaseWebServices userBaseWebServices,
+  AuthRepositoryImpl(
+      {required AuthBaseWebServices authBaseWebServices,
       required NetworkInfo networkInfo})
-      : _userBaseWebServices = userBaseWebServices,
+      : _authBaseWebServices = authBaseWebServices,
         _networkInfo = networkInfo;
 
   @override
@@ -52,7 +52,7 @@ class UserRepositoryImpl implements UserBaseRepository {
       LoginParams loginParams) async {
     try {
       if (await _networkInfo.isConnected) {
-        final response = await _userBaseWebServices.login(loginParams);
+        final response = await _authBaseWebServices.login(loginParams);
         return Right(response);
       } else {
         return const Left(NetworkExceptions.noInternetConnection());
@@ -67,7 +67,7 @@ class UserRepositoryImpl implements UserBaseRepository {
       RegisterParams registerParams) async {
     try {
       if (await _networkInfo.isConnected) {
-        final response = await _userBaseWebServices.register(registerParams);
+        final response = await _authBaseWebServices.register(registerParams);
         return Right(response);
       } else {
         return const Left(NetworkExceptions.noInternetConnection());
@@ -83,7 +83,7 @@ class UserRepositoryImpl implements UserBaseRepository {
     try {
       if (await _networkInfo.isConnected) {
         final response =
-            await _userBaseWebServices.forgetPassword(forgetPasswordParams);
+            await _authBaseWebServices.forgetPassword(forgetPasswordParams);
         return Right(response);
       } else {
         return const Left(NetworkExceptions.noInternetConnection());
@@ -98,7 +98,7 @@ class UserRepositoryImpl implements UserBaseRepository {
     try {
       if (await _networkInfo.isConnected) {
         final response =
-            await _userBaseWebServices.resendOtp(resendOtpParams);
+            await _authBaseWebServices.resendOtp(resendOtpParams);
         return Right(response);
       } else {
         return const Left(NetworkExceptions.noInternetConnection());
@@ -113,7 +113,7 @@ class UserRepositoryImpl implements UserBaseRepository {
     try {
       if (await _networkInfo.isConnected) {
         final response =
-            await _userBaseWebServices.resetPassword(resetPasswordParams);
+            await _authBaseWebServices.resetPassword(resetPasswordParams);
         return Right(response);
       } else {
         return const Left(NetworkExceptions.noInternetConnection());
@@ -128,7 +128,7 @@ class UserRepositoryImpl implements UserBaseRepository {
     try {
       if (await _networkInfo.isConnected) {
         final response =
-            await _userBaseWebServices.verifyOtp(verifyOtpParams);
+            await _authBaseWebServices.verifyOtp(verifyOtpParams);
         return Right(response);
       } else {
         return const Left(NetworkExceptions.noInternetConnection());

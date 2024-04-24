@@ -15,7 +15,7 @@ import 'package:ejar_v/feature/auth/entity/reset_password/reset_password_entity.
 import 'package:ejar_v/feature/auth/entity/verify_otp/verify_otp_entity.dart';
 import 'package:injectable/injectable.dart';
 
-abstract class UserBaseWebServices {
+abstract class AuthBaseWebServices {
   Future<LoginEntity> login(LoginParams loginParams);
 
   Future<RegisterEntity> register(RegisterParams registerParams);
@@ -31,11 +31,11 @@ abstract class UserBaseWebServices {
   Future<VerifyOtpEntity> verifyOtp(VerifyOtpParams verifyOtpParams);
 }
 
-@Singleton(as: UserBaseWebServices)
-class UserWebServicesImpl implements UserBaseWebServices {
+@Singleton(as: AuthBaseWebServices)
+class AuthWebServicesImpl implements AuthBaseWebServices {
   final ApiConsumer _apiConsumer;
 
-  UserWebServicesImpl({required ApiConsumer apiConsumer})
+  AuthWebServicesImpl({required ApiConsumer apiConsumer})
       : _apiConsumer = apiConsumer;
 
   @override

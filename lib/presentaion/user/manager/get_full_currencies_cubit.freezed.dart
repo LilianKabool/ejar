@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'user_log_in_state.dart';
+part of 'get_full_currencies_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,35 +15,32 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UserLogInState {
+mixin _$GetFullCurrenciesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(LoginEntity loginEntity) success,
+    required TResult Function(GetFullCurrenciesEntity getFullCurrenciesEntity)
+        success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(LoginEntity loginEntity)? success,
+    TResult? Function(GetFullCurrenciesEntity getFullCurrenciesEntity)? success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(LoginEntity loginEntity)? success,
+    TResult Function(GetFullCurrenciesEntity getFullCurrenciesEntity)? success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
@@ -51,7 +48,6 @@ mixin _$UserLogInState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
@@ -59,7 +55,6 @@ mixin _$UserLogInState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
@@ -69,135 +64,22 @@ mixin _$UserLogInState {
 }
 
 /// @nodoc
-abstract class $UserLogInStateCopyWith<$Res> {
-  factory $UserLogInStateCopyWith(
-          UserLogInState value, $Res Function(UserLogInState) then) =
-      _$UserLogInStateCopyWithImpl<$Res, UserLogInState>;
+abstract class $GetFullCurrenciesStateCopyWith<$Res> {
+  factory $GetFullCurrenciesStateCopyWith(GetFullCurrenciesState value,
+          $Res Function(GetFullCurrenciesState) then) =
+      _$GetFullCurrenciesStateCopyWithImpl<$Res, GetFullCurrenciesState>;
 }
 
 /// @nodoc
-class _$UserLogInStateCopyWithImpl<$Res, $Val extends UserLogInState>
-    implements $UserLogInStateCopyWith<$Res> {
-  _$UserLogInStateCopyWithImpl(this._value, this._then);
+class _$GetFullCurrenciesStateCopyWithImpl<$Res,
+        $Val extends GetFullCurrenciesState>
+    implements $GetFullCurrenciesStateCopyWith<$Res> {
+  _$GetFullCurrenciesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$UserLogInStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
-
-  @override
-  String toString() {
-    return 'UserLogInState.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(LoginEntity loginEntity) success,
-    required TResult Function(NetworkExceptions networkExceptions) error,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(LoginEntity loginEntity)? success,
-    TResult? Function(NetworkExceptions networkExceptions)? error,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(LoginEntity loginEntity)? success,
-    TResult Function(NetworkExceptions networkExceptions)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
-    required TResult Function(Error value) error,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
-    TResult? Function(Error value)? error,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
-    TResult Function(Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements UserLogInState {
-  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
@@ -209,7 +91,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$UserLogInStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$GetFullCurrenciesStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -223,7 +105,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'UserLogInState.loading()';
+    return 'GetFullCurrenciesState.loading()';
   }
 
   @override
@@ -238,9 +120,9 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(LoginEntity loginEntity) success,
+    required TResult Function(GetFullCurrenciesEntity getFullCurrenciesEntity)
+        success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) {
     return loading();
@@ -249,9 +131,8 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(LoginEntity loginEntity)? success,
+    TResult? Function(GetFullCurrenciesEntity getFullCurrenciesEntity)? success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) {
     return loading?.call();
@@ -260,9 +141,8 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(LoginEntity loginEntity)? success,
+    TResult Function(GetFullCurrenciesEntity getFullCurrenciesEntity)? success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) {
@@ -275,7 +155,6 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
@@ -286,7 +165,6 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
@@ -297,7 +175,6 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
@@ -310,7 +187,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements UserLogInState {
+abstract class Loading implements GetFullCurrenciesState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -320,12 +197,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({LoginEntity loginEntity});
+  $Res call({GetFullCurrenciesEntity getFullCurrenciesEntity});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$UserLogInStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$GetFullCurrenciesStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -334,13 +211,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? loginEntity = null,
+    Object? getFullCurrenciesEntity = null,
   }) {
     return _then(_$SuccessImpl(
-      null == loginEntity
-          ? _value.loginEntity
-          : loginEntity // ignore: cast_nullable_to_non_nullable
-              as LoginEntity,
+      null == getFullCurrenciesEntity
+          ? _value.getFullCurrenciesEntity
+          : getFullCurrenciesEntity // ignore: cast_nullable_to_non_nullable
+              as GetFullCurrenciesEntity,
     ));
   }
 }
@@ -348,14 +225,14 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.loginEntity);
+  const _$SuccessImpl(this.getFullCurrenciesEntity);
 
   @override
-  final LoginEntity loginEntity;
+  final GetFullCurrenciesEntity getFullCurrenciesEntity;
 
   @override
   String toString() {
-    return 'UserLogInState.success(loginEntity: $loginEntity)';
+    return 'GetFullCurrenciesState.success(getFullCurrenciesEntity: $getFullCurrenciesEntity)';
   }
 
   @override
@@ -363,12 +240,13 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.loginEntity, loginEntity) ||
-                other.loginEntity == loginEntity));
+            (identical(
+                    other.getFullCurrenciesEntity, getFullCurrenciesEntity) ||
+                other.getFullCurrenciesEntity == getFullCurrenciesEntity));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, loginEntity);
+  int get hashCode => Object.hash(runtimeType, getFullCurrenciesEntity);
 
   @JsonKey(ignore: true)
   @override
@@ -379,36 +257,34 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(LoginEntity loginEntity) success,
+    required TResult Function(GetFullCurrenciesEntity getFullCurrenciesEntity)
+        success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) {
-    return success(loginEntity);
+    return success(getFullCurrenciesEntity);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(LoginEntity loginEntity)? success,
+    TResult? Function(GetFullCurrenciesEntity getFullCurrenciesEntity)? success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) {
-    return success?.call(loginEntity);
+    return success?.call(getFullCurrenciesEntity);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(LoginEntity loginEntity)? success,
+    TResult Function(GetFullCurrenciesEntity getFullCurrenciesEntity)? success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(loginEntity);
+      return success(getFullCurrenciesEntity);
     }
     return orElse();
   }
@@ -416,7 +292,6 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
@@ -427,7 +302,6 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
@@ -438,7 +312,6 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
@@ -451,10 +324,11 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements UserLogInState {
-  const factory Success(final LoginEntity loginEntity) = _$SuccessImpl;
+abstract class Success implements GetFullCurrenciesState {
+  const factory Success(final GetFullCurrenciesEntity getFullCurrenciesEntity) =
+      _$SuccessImpl;
 
-  LoginEntity get loginEntity;
+  GetFullCurrenciesEntity get getFullCurrenciesEntity;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -473,7 +347,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$UserLogInStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$GetFullCurrenciesStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -511,7 +385,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'UserLogInState.error(networkExceptions: $networkExceptions)';
+    return 'GetFullCurrenciesState.error(networkExceptions: $networkExceptions)';
   }
 
   @override
@@ -535,9 +409,9 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(LoginEntity loginEntity) success,
+    required TResult Function(GetFullCurrenciesEntity getFullCurrenciesEntity)
+        success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) {
     return error(networkExceptions);
@@ -546,9 +420,8 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(LoginEntity loginEntity)? success,
+    TResult? Function(GetFullCurrenciesEntity getFullCurrenciesEntity)? success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) {
     return error?.call(networkExceptions);
@@ -557,9 +430,8 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(LoginEntity loginEntity)? success,
+    TResult Function(GetFullCurrenciesEntity getFullCurrenciesEntity)? success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) {
@@ -572,7 +444,6 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
@@ -583,7 +454,6 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
@@ -594,7 +464,6 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
@@ -607,7 +476,7 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements UserLogInState {
+abstract class Error implements GetFullCurrenciesState {
   const factory Error(final NetworkExceptions networkExceptions) = _$ErrorImpl;
 
   NetworkExceptions get networkExceptions;

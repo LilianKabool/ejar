@@ -4,12 +4,12 @@ import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/params/forget_password_params.dart';
-import '../../../../feature/auth/repository/user_repository.dart';
+import '../../../../feature/auth/repository/auth_repository.dart';
 import 'forget_password_state.dart';
 
 @injectable
 class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
-  final UserBaseRepository _userBaseRepository;
+  final AuthBaseRepository _userBaseRepository;
 
   ForgetPasswordCubit(this._userBaseRepository)
       : super( ForgetPasswordState.idel()  );

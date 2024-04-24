@@ -3,13 +3,13 @@ import 'package:ejar_v/core/params/reset_password_params.dart';
 import 'package:ejar_v/presentaion/auth/manager/reset_password/reset_password_state.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../feature/auth/repository/user_repository.dart';
+import '../../../../feature/auth/repository/auth_repository.dart';
 
 @injectable
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-  final UserBaseRepository _userBaseRepository;
+  final AuthBaseRepository _authBaseRepository;
 
-  ResetPasswordCubit(this._userBaseRepository)
+  ResetPasswordCubit(this._authBaseRepository)
       : super(ResetPasswordState.idel());
 
   emitResetOtp({
@@ -18,7 +18,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     required String passwordConfirmation,
   }) async {
     emit(const ResetPasswordState.loading());
-    final response = await _userBaseRepository.resetPassword(ResetPasswordParams(
+    final response = await _authBaseRepository.resetPassword(ResetPasswordParams(
       otp: otp, password: password, passwordConfirmation: passwordConfirmation,
     ));
     response.fold((l) => emit(ResetPasswordState.error(l)),
