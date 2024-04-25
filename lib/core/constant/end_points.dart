@@ -30,6 +30,7 @@ class EndPoints{
                 static const String getFullCurrencies = "$baseUrl/getFullCurrencies";
                 static const String getFullCountry = "$baseUrl/getFullCountry";
                 static const String getFullCity = "$baseUrl/getFullCity";
+                static const String getProfile = "$baseUrl/profile";
 
 
 }

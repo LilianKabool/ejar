@@ -6,6 +6,7 @@ import 'package:ejar_v/data/user/entity/full_city_entity.dart';
 import 'package:ejar_v/data/user/entity/full_country_entity.dart';
 import 'package:ejar_v/data/user/entity/get_full_countries_entity.dart';
 import 'package:ejar_v/data/user/entity/get_full_currencies_entity.dart';
+import 'package:ejar_v/data/user/entity/profile_entity.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class UserBaseWebServices{
@@ -13,6 +14,7 @@ abstract class UserBaseWebServices{
     Future<GetFullCurrenciesEntity> getFullCurrencies();
     Future<FullCountryEntity> getFullCountry(GetFullCountryParams getFullCountryParams);
     Future<FullCityEntity> getFullCity(GetFullCityParams getFullCityParams);
+    Future<BaseProfileEntity> getProfile();
 
 
 }
@@ -44,6 +46,12 @@ final response = await _apiConsumer.post(EndPoints.getFullCountry,queryParameter
   Future<FullCityEntity> getFullCity(GetFullCityParams getFullCityParams) async{
 final response = await _apiConsumer.post(EndPoints.getFullCountry,queryParameters: getFullCityParams.toJson());
     return FullCityEntity.fromJson(response);
+  }
+  
+  @override
+  Future<BaseProfileEntity> getProfile() async{
+       final response = await _apiConsumer.get(EndPoints.getProfile);
+    return BaseProfileEntity.fromJson(response);
   }
   
 

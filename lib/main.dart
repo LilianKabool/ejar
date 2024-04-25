@@ -5,7 +5,7 @@ import 'package:ejar_v/presentaion/auth/screens/main_screen.dart';
 import 'package:ejar_v/presentaion/auth/screens/splash_screen.dart';
 import 'package:ejar_v/presentaion/owner/manager/active_subscription_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/add_photo_to_product_cubit.dart';
-import 'package:ejar_v/presentaion/owner/manager/cubit/update_product_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/update_product_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/set_card_info_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/get_category_attributes_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/subscripe_cubit.dart';
@@ -14,6 +14,9 @@ import 'package:ejar_v/presentaion/owner/manager/processing_orders_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/my_products_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/my_subscription_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/subscription_cubit.dart';
+import 'package:ejar_v/presentaion/owner/screens/company_subscription_screen.dart';
+import 'package:ejar_v/presentaion/owner/widgets/profile_widget.dart';
+import 'package:ejar_v/presentaion/user/manager/cubit/get_profile_cubit.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -59,11 +62,12 @@ class MyApp extends StatelessWidget {
                     BlocProvider(create: (context) => getItMhamad<AddPhotoToProductCubit>(),),
                     BlocProvider(create: (context) => getItMhamad<GetCategoryAttributesCubit>(),),
                     BlocProvider(create: (context) => getItMhamad<UpdateProductCubit>(),),
+                    BlocProvider(create: (context) => getItMhamad<GetProfileCubit>(),),
 
           BlocProvider(create: (context) => getIt<VisibilityPasswordCubit>(),),
         ],
         child: MaterialApp(
-          home: SplashScreen(),
+          home: OwnerProfileScreen(),
         ),
       ),
     );

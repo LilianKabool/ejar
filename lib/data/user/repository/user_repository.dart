@@ -8,6 +8,7 @@ import 'package:ejar_v/data/user/entity/full_city_entity.dart';
 import 'package:ejar_v/data/user/entity/full_country_entity.dart';
 import 'package:ejar_v/data/user/entity/get_full_countries_entity.dart';
 import 'package:ejar_v/data/user/entity/get_full_currencies_entity.dart';
+import 'package:ejar_v/data/user/entity/profile_entity.dart';
 import 'package:ejar_v/data/user/web_services/user_web_services.dart';
 import 'package:injectable/injectable.dart';
 
@@ -16,6 +17,7 @@ abstract class UserBaseRepository{
     Future<Either<NetworkExceptions,GetFullCurrenciesEntity>> getFullCurrencies();
     Future<Either<NetworkExceptions,FullCountryEntity>> getFullCountry(GetFullCountryParams getFullCountryParams);
     Future<Either<NetworkExceptions,FullCityEntity>> getFullCity(GetFullCityParams getFullCityParams);
+    Future<Either<NetworkExceptions,BaseProfileEntity>> getProfile();
 
 }
 @Singleton(as: UserBaseRepository)
@@ -72,6 +74,20 @@ class UserRepositoryImpl implements UserBaseRepository{
              try{
       if(await _networkInfo.isConnected){
         final response = await _userBaseWebServices.getFullCity(getFullCityParams);
+        return Right(response);
+      }else{
+        return const Left(NetworkExceptions.noInternetConnection());
+      }
+    } on Exception catch (ex){
+      return Left(NetworkExceptions.getDioException(ex));
+    }
+  }
+  
+  @override
+  Future<Either<NetworkExceptions, BaseProfileEntity>> getProfile() async{
+                try{
+      if(await _networkInfo.isConnected){
+        final response = await _userBaseWebServices.getProfile();
         return Right(response);
       }else{
         return const Left(NetworkExceptions.noInternetConnection());

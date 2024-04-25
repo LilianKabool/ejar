@@ -57,7 +57,7 @@ class ProductData {
   @JsonKey(name: 'start_date')
   final String startDate;
   @JsonKey(name: 'end_date')
-  final String endDate;
+  final String? endDate;
   @JsonKey(name: 'category_id')
   final int categoryId;
   @JsonKey(name: 'image')

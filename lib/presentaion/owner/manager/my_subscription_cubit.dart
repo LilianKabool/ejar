@@ -10,7 +10,7 @@ part 'my_subscription_cubit.freezed.dart';
 @injectable
 class MySubscriptionCubit extends Cubit<MySubscriptionState> {
 final OwnerBaseRepository _ownerBaseRepository;
-  MySubscriptionCubit(this._ownerBaseRepository) : super(const MySubscriptionState.initial());
+  MySubscriptionCubit(this._ownerBaseRepository) : super(const MySubscriptionState.loading());
   Future<void> emitPostMySubscription()async{
     emit(const MySubscriptionState.loading());
     final response = await _ownerBaseRepository.mySubscriptions();

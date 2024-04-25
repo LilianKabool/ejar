@@ -9,7 +9,7 @@ import 'package:ejar_v/core/params/update_product_params.dart';
 import 'package:ejar_v/injection_container.dart';
 import 'package:ejar_v/presentaion/owner/manager/active_subscription_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/add_photo_to_product_cubit.dart';
-import 'package:ejar_v/presentaion/owner/manager/cubit/update_product_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/update_product_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/set_card_info_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/get_category_attributes_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/processing_orders_cubit.dart';

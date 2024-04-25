@@ -20,7 +20,8 @@ mixin _$SubscriptionState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BaseSubscriptionsEntity baseSubscriptionsEntity)
+    required TResult Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)
         success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) =>
@@ -29,7 +30,9 @@ mixin _$SubscriptionState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BaseSubscriptionsEntity baseSubscriptionsEntity)? success,
+    TResult? Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)?
+        success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,32 +40,34 @@ mixin _$SubscriptionState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BaseSubscriptionsEntity baseSubscriptionsEntity)? success,
+    TResult Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)?
+        success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
+    required TResult Function(SuccessSubscription value) success,
     required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
+    TResult? Function(SuccessSubscription value)? success,
     TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
+    TResult Function(SuccessSubscription value)? success,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
@@ -105,7 +110,7 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl implements Initial {
   const _$InitialImpl();
 
   @override
@@ -127,7 +132,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BaseSubscriptionsEntity baseSubscriptionsEntity)
+    required TResult Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)
         success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) {
@@ -139,7 +145,9 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BaseSubscriptionsEntity baseSubscriptionsEntity)? success,
+    TResult? Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)?
+        success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) {
     return initial?.call();
@@ -150,7 +158,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BaseSubscriptionsEntity baseSubscriptionsEntity)? success,
+    TResult Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)?
+        success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) {
@@ -163,9 +173,9 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
+    required TResult Function(SuccessSubscription value) success,
     required TResult Function(Error value) error,
   }) {
     return initial(this);
@@ -174,9 +184,9 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
+    TResult? Function(SuccessSubscription value)? success,
     TResult? Function(Error value)? error,
   }) {
     return initial?.call(this);
@@ -185,9 +195,9 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
+    TResult Function(SuccessSubscription value)? success,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -198,8 +208,8 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements SubscriptionState {
-  const factory _Initial() = _$InitialImpl;
+abstract class Initial implements SubscriptionState {
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
@@ -242,7 +252,8 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BaseSubscriptionsEntity baseSubscriptionsEntity)
+    required TResult Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)
         success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) {
@@ -254,7 +265,9 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BaseSubscriptionsEntity baseSubscriptionsEntity)? success,
+    TResult? Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)?
+        success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) {
     return loading?.call();
@@ -265,7 +278,9 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BaseSubscriptionsEntity baseSubscriptionsEntity)? success,
+    TResult Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)?
+        success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) {
@@ -278,9 +293,9 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
+    required TResult Function(SuccessSubscription value) success,
     required TResult Function(Error value) error,
   }) {
     return loading(this);
@@ -289,9 +304,9 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
+    TResult? Function(SuccessSubscription value)? success,
     TResult? Function(Error value)? error,
   }) {
     return loading?.call(this);
@@ -300,9 +315,9 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
+    TResult Function(SuccessSubscription value)? success,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -318,78 +333,100 @@ abstract class Loading implements SubscriptionState {
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<$Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+abstract class _$$SuccessSubscriptionImplCopyWith<$Res> {
+  factory _$$SuccessSubscriptionImplCopyWith(_$SuccessSubscriptionImpl value,
+          $Res Function(_$SuccessSubscriptionImpl) then) =
+      __$$SuccessSubscriptionImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({BaseSubscriptionsEntity baseSubscriptionsEntity});
+  $Res call(
+      {BaseSubscriptionsEntity subscriptions,
+      Map<int, bool> selectedSubscriptions});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$SubscriptionStateCopyWithImpl<$Res, _$SuccessImpl>
-    implements _$$SuccessImplCopyWith<$Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
+class __$$SuccessSubscriptionImplCopyWithImpl<$Res>
+    extends _$SubscriptionStateCopyWithImpl<$Res, _$SuccessSubscriptionImpl>
+    implements _$$SuccessSubscriptionImplCopyWith<$Res> {
+  __$$SuccessSubscriptionImplCopyWithImpl(_$SuccessSubscriptionImpl _value,
+      $Res Function(_$SuccessSubscriptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? baseSubscriptionsEntity = null,
+    Object? subscriptions = null,
+    Object? selectedSubscriptions = null,
   }) {
-    return _then(_$SuccessImpl(
-      null == baseSubscriptionsEntity
-          ? _value.baseSubscriptionsEntity
-          : baseSubscriptionsEntity // ignore: cast_nullable_to_non_nullable
+    return _then(_$SuccessSubscriptionImpl(
+      subscriptions: null == subscriptions
+          ? _value.subscriptions
+          : subscriptions // ignore: cast_nullable_to_non_nullable
               as BaseSubscriptionsEntity,
+      selectedSubscriptions: null == selectedSubscriptions
+          ? _value._selectedSubscriptions
+          : selectedSubscriptions // ignore: cast_nullable_to_non_nullable
+              as Map<int, bool>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.baseSubscriptionsEntity);
+class _$SuccessSubscriptionImpl implements SuccessSubscription {
+  const _$SuccessSubscriptionImpl(
+      {required this.subscriptions,
+      required final Map<int, bool> selectedSubscriptions})
+      : _selectedSubscriptions = selectedSubscriptions;
 
   @override
-  final BaseSubscriptionsEntity baseSubscriptionsEntity;
+  final BaseSubscriptionsEntity subscriptions;
+  final Map<int, bool> _selectedSubscriptions;
+  @override
+  Map<int, bool> get selectedSubscriptions {
+    if (_selectedSubscriptions is EqualUnmodifiableMapView)
+      return _selectedSubscriptions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_selectedSubscriptions);
+  }
 
   @override
   String toString() {
-    return 'SubscriptionState.success(baseSubscriptionsEntity: $baseSubscriptionsEntity)';
+    return 'SubscriptionState.success(subscriptions: $subscriptions, selectedSubscriptions: $selectedSubscriptions)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl &&
-            (identical(
-                    other.baseSubscriptionsEntity, baseSubscriptionsEntity) ||
-                other.baseSubscriptionsEntity == baseSubscriptionsEntity));
+            other is _$SuccessSubscriptionImpl &&
+            (identical(other.subscriptions, subscriptions) ||
+                other.subscriptions == subscriptions) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedSubscriptions, _selectedSubscriptions));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, baseSubscriptionsEntity);
+  int get hashCode => Object.hash(runtimeType, subscriptions,
+      const DeepCollectionEquality().hash(_selectedSubscriptions));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
+  _$$SuccessSubscriptionImplCopyWith<_$SuccessSubscriptionImpl> get copyWith =>
+      __$$SuccessSubscriptionImplCopyWithImpl<_$SuccessSubscriptionImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BaseSubscriptionsEntity baseSubscriptionsEntity)
+    required TResult Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)
         success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) {
-    return success(baseSubscriptionsEntity);
+    return success(subscriptions, selectedSubscriptions);
   }
 
   @override
@@ -397,10 +434,12 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BaseSubscriptionsEntity baseSubscriptionsEntity)? success,
+    TResult? Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)?
+        success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) {
-    return success?.call(baseSubscriptionsEntity);
+    return success?.call(subscriptions, selectedSubscriptions);
   }
 
   @override
@@ -408,12 +447,14 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BaseSubscriptionsEntity baseSubscriptionsEntity)? success,
+    TResult Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)?
+        success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(baseSubscriptionsEntity);
+      return success(subscriptions, selectedSubscriptions);
     }
     return orElse();
   }
@@ -421,9 +462,9 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
+    required TResult Function(SuccessSubscription value) success,
     required TResult Function(Error value) error,
   }) {
     return success(this);
@@ -432,9 +473,9 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
+    TResult? Function(SuccessSubscription value)? success,
     TResult? Function(Error value)? error,
   }) {
     return success?.call(this);
@@ -443,9 +484,9 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
+    TResult Function(SuccessSubscription value)? success,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -456,13 +497,16 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements SubscriptionState {
-  const factory Success(final BaseSubscriptionsEntity baseSubscriptionsEntity) =
-      _$SuccessImpl;
+abstract class SuccessSubscription implements SubscriptionState {
+  const factory SuccessSubscription(
+          {required final BaseSubscriptionsEntity subscriptions,
+          required final Map<int, bool> selectedSubscriptions}) =
+      _$SuccessSubscriptionImpl;
 
-  BaseSubscriptionsEntity get baseSubscriptionsEntity;
+  BaseSubscriptionsEntity get subscriptions;
+  Map<int, bool> get selectedSubscriptions;
   @JsonKey(ignore: true)
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+  _$$SuccessSubscriptionImplCopyWith<_$SuccessSubscriptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -543,7 +587,8 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BaseSubscriptionsEntity baseSubscriptionsEntity)
+    required TResult Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)
         success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) {
@@ -555,7 +600,9 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BaseSubscriptionsEntity baseSubscriptionsEntity)? success,
+    TResult? Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)?
+        success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) {
     return error?.call(networkExceptions);
@@ -566,7 +613,9 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BaseSubscriptionsEntity baseSubscriptionsEntity)? success,
+    TResult Function(BaseSubscriptionsEntity subscriptions,
+            Map<int, bool> selectedSubscriptions)?
+        success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) {
@@ -579,9 +628,9 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
+    required TResult Function(SuccessSubscription value) success,
     required TResult Function(Error value) error,
   }) {
     return error(this);
@@ -590,9 +639,9 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
+    TResult? Function(SuccessSubscription value)? success,
     TResult? Function(Error value)? error,
   }) {
     return error?.call(this);
@@ -601,9 +650,9 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
+    TResult Function(SuccessSubscription value)? success,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {

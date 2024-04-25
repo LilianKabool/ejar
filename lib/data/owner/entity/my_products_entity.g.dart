@@ -45,7 +45,7 @@ ProductData _$ProductDataFromJson(Map<String, dynamic> json) => ProductData(
       json['description'] as String,
       json['description_en'] as String,
       json['start_date'] as String,
-      json['end_date'] as String,
+      json['end_date'] as String?,
       json['category_id'] as int,
       json['image'] as String,
       json['price_unit'] as String,
