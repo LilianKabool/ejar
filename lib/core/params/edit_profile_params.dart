@@ -10,6 +10,8 @@ class EditProfileParams{
 
 
 Map<String,dynamic> toJson()=>{
-
+"address":address,
+"phone":phoneNumber,
+"photo":photo.path
 };
 }

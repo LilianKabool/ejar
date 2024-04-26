@@ -9,8 +9,9 @@ import 'package:ejar_v/presentaion/owner/manager/my_products_cubit.dart';
 import 'package:ejar_v/presentaion/owner/screens/company_subscription_screen.dart';
 import 'package:ejar_v/presentaion/owner/screens/details_screen.dart';
 import 'package:ejar_v/presentaion/owner/screens/edit_profile_user.dart';
+import 'package:ejar_v/presentaion/owner/screens/my_subscription_screen.dart';
 import 'package:ejar_v/presentaion/owner/widgets/product_widget.dart';
-import 'package:ejar_v/presentaion/user/manager/cubit/get_profile_cubit.dart';
+import 'package:ejar_v/presentaion/user/manager/get_profile_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -191,18 +192,7 @@ class _OwnerProfileScreenState extends State<OwnerProfileScreen> {
             radius: 50,
           ),
         ),
-        SizedBox(
-          height: 30,
-          child: FloatingActionButton(
-            onPressed: () {},
-            shape:
-                CircleBorder(side: BorderSide(color: AppColors.mediumGolden1)),
-            backgroundColor: AppColors.pureWhite,
-            elevation: 0.0,
-            child: Icon(Icons.camera_alt_outlined,
-                color: AppColors.mediumGolden1, size: 20),
-          ),
-        ),
+       
       ],
     );
   }
@@ -256,14 +246,14 @@ class _OwnerProfileScreenState extends State<OwnerProfileScreen> {
   Widget editProfileButton(BaseProfileEntity baseProfileEntity) {
     return ElevatedButton(
       onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (_) => BlocProvider(
-                      create: (context) => getItMhamad<EditControllerCubit>(),
-                      child: EditProfileScreen(
-                          baseProfileEntity: baseProfileEntity),
-                    )));
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (_) => BlocProvider(
+        //               create: (context) => getItMhamad<EditControllerCubit>(),
+        //               child: EditProfileScreen(
+        //                   baseProfileEntity: baseProfileEntity),
+        //             )));
       },
       child: Text('Edit Information',
           style: TextStyle(
@@ -279,17 +269,18 @@ class _OwnerProfileScreenState extends State<OwnerProfileScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          subscriptionOption('Company Subscription'),
-          subscriptionOption('Material Subscription'),
+          subscriptionOption('My Subscription',(){Navigator.push(context, MaterialPageRoute(builder: (_)=>MySubscriptionScreen()));}),
+          subscriptionOption('Material Subscription',(){}),
         ],
       ),
     );
   }
 
-  Widget subscriptionOption(String title) {
+  Widget subscriptionOption(String title,Function() onTap) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
+        width: 140,
         height: 40,
         decoration: BoxDecoration(
           gradient: LinearGradient(colors: [

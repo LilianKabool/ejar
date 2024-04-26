@@ -36,7 +36,7 @@ class CountryEntity {
   final int delete;
   @JsonKey(name: 'cities')
   final List<CityData> cities;
-  @JsonKey(name: 'englishName')
+  @JsonKey(name: 'name_en')
   final String englishName;
 
   CountryEntity({required this.id, required this.name, required this.delete, required this.cities, required this.englishName});
@@ -66,7 +66,7 @@ class CityEntity {
   final int countryId;
   @JsonKey(name: 'delete')
   final int delete;
-  @JsonKey(name: 'englishName')
+  @JsonKey(name: 'name_en')
   final String englishName;
   @JsonKey(name: 'regions')
   final List<Region> regions;
@@ -89,7 +89,7 @@ class Region {
   final int cityId;
   @JsonKey(name: 'delete')
   final int delete;
-  @JsonKey(name: 'englishName')
+  @JsonKey(name: 'name_en')
   final String englishName;
 
   Region({required this.id, required this.name, required this.countryId, required this.cityId, required this.delete, required this.englishName});

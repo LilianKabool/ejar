@@ -18,7 +18,7 @@ import 'core/api/api_consumer.dart' as _i9;
 import 'core/api/dio_consumer.dart' as _i4;
 import 'core/api/logging_interceptor.dart' as _i5;
 import 'core/network/network_info.dart' as _i8;
-import 'core/third_party_injection.dart' as _i36;
+import 'core/third_party_injection.dart' as _i37;
 import 'data/order/repository/order_repository.dart' as _i28;
 import 'data/order/web_services/order_web_services.dart' as _i13;
 import 'data/owner/repository/owner_respository.dart' as _i14;
@@ -27,8 +27,8 @@ import 'data/repository/login_repository.dart' as _i26;
 import 'data/user/repository/user_repository.dart' as _i25;
 import 'data/user/web_services/user_web_services.dart' as _i11;
 import 'data/web_services/login_web_Service.dart' as _i12;
-import 'presentaion/order/manager/cubit/rate_product_cubit.dart' as _i34;
-import 'presentaion/order/manager/store_order_cubit.dart' as _i35;
+import 'presentaion/order/manager/cubit/rate_product_cubit.dart' as _i35;
+import 'presentaion/order/manager/store_order_cubit.dart' as _i36;
 import 'presentaion/owner/manager/active_subscription_cubit.dart' as _i15;
 import 'presentaion/owner/manager/add_photo_to_product_cubit.dart' as _i21;
 import 'presentaion/owner/manager/cubit/edit_controller_cubit.dart' as _i3;
@@ -41,11 +41,12 @@ import 'presentaion/owner/manager/subscripe_cubit.dart' as _i23;
 import 'presentaion/owner/manager/subscription_cubit.dart' as _i16;
 import 'presentaion/owner/manager/update_product_cubit.dart' as _i20;
 import 'presentaion/owner/manager/user_log_in_cubit.dart' as _i27;
-import 'presentaion/user/manager/cubit/get_profile_cubit.dart' as _i30;
-import 'presentaion/user/manager/get_full_city_cubit.dart' as _i33;
+import 'presentaion/user/manager/cubit/edit_profile_cubit.dart' as _i33;
+import 'presentaion/user/manager/get_full_city_cubit.dart' as _i32;
 import 'presentaion/user/manager/get_full_countries_cubit.dart' as _i29;
-import 'presentaion/user/manager/get_full_country_cubit.dart' as _i32;
-import 'presentaion/user/manager/get_full_currencies_cubit.dart' as _i31;
+import 'presentaion/user/manager/get_full_country_cubit.dart' as _i31;
+import 'presentaion/user/manager/get_full_currencies_cubit.dart' as _i30;
+import 'presentaion/user/manager/get_profile_cubit.dart' as _i34;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -116,20 +117,22 @@ extension GetItInjectableX on _i1.GetIt {
         ));
     gh.factory<_i29.GetFullCountriesCubit>(
         () => _i29.GetFullCountriesCubit(gh<_i25.UserBaseRepository>()));
-    gh.factory<_i30.GetProfileCubit>(
-        () => _i30.GetProfileCubit(gh<_i25.UserBaseRepository>()));
-    gh.factory<_i31.GetFullCurrenciesCubit>(
-        () => _i31.GetFullCurrenciesCubit(gh<_i25.UserBaseRepository>()));
-    gh.factory<_i32.GetFullCountryCubit>(
-        () => _i32.GetFullCountryCubit(gh<_i25.UserBaseRepository>()));
-    gh.factory<_i33.GetFullCityCubit>(
-        () => _i33.GetFullCityCubit(gh<_i25.UserBaseRepository>()));
-    gh.factory<_i34.RateProductCubit>(
-        () => _i34.RateProductCubit(gh<_i28.OrderBaseRepository>()));
-    gh.factory<_i35.StoreOrderCubit>(
-        () => _i35.StoreOrderCubit(gh<_i28.OrderBaseRepository>()));
+    gh.factory<_i30.GetFullCurrenciesCubit>(
+        () => _i30.GetFullCurrenciesCubit(gh<_i25.UserBaseRepository>()));
+    gh.factory<_i31.GetFullCountryCubit>(
+        () => _i31.GetFullCountryCubit(gh<_i25.UserBaseRepository>()));
+    gh.factory<_i32.GetFullCityCubit>(
+        () => _i32.GetFullCityCubit(gh<_i25.UserBaseRepository>()));
+    gh.factory<_i33.EditProfileCubit>(
+        () => _i33.EditProfileCubit(gh<_i25.UserBaseRepository>()));
+    gh.factory<_i34.GetProfileCubit>(
+        () => _i34.GetProfileCubit(gh<_i25.UserBaseRepository>()));
+    gh.factory<_i35.RateProductCubit>(
+        () => _i35.RateProductCubit(gh<_i28.OrderBaseRepository>()));
+    gh.factory<_i36.StoreOrderCubit>(
+        () => _i36.StoreOrderCubit(gh<_i28.OrderBaseRepository>()));
     return this;
   }
 }
 
-class _$ThirdPartyInjection extends _i36.ThirdPartyInjection {}
+class _$ThirdPartyInjection extends _i37.ThirdPartyInjection {}

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -24,9 +26,13 @@ class EditControllerCubit extends Cubit<EditControllerState> {
     print(currentText);
   }
 
- updateImagePath(String imagePath) {
-  final filename = imagePath.split('/').last;
-  emit(state.copyWith(imagePath: filename));
+updateImagePath(String imagePath) {
+  final file = File(imagePath);
+  if (file.existsSync()) {
+    emit(state.copyWith(imagePath: imagePath));
+  } else {
+    print('File does not exist: $imagePath');
+  }
 }
 
 

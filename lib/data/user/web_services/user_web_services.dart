@@ -1,5 +1,6 @@
 import 'package:ejar_v/core/api/api_consumer.dart';
 import 'package:ejar_v/core/constant/end_points.dart';
+import 'package:ejar_v/core/params/edit_profile_params.dart';
 import 'package:ejar_v/core/params/get_full_city_params.dart';
 import 'package:ejar_v/core/params/get_full_country_params.dart';
 import 'package:ejar_v/data/user/entity/full_city_entity.dart';
@@ -15,6 +16,7 @@ abstract class UserBaseWebServices{
     Future<FullCountryEntity> getFullCountry(GetFullCountryParams getFullCountryParams);
     Future<FullCityEntity> getFullCity(GetFullCityParams getFullCityParams);
     Future<BaseProfileEntity> getProfile();
+    Future<void> editProfile(EditProfileParams editProfileParams);
 
 
 }
@@ -52,6 +54,12 @@ final response = await _apiConsumer.post(EndPoints.getFullCountry,queryParameter
   Future<BaseProfileEntity> getProfile() async{
        final response = await _apiConsumer.get(EndPoints.getProfile);
     return BaseProfileEntity.fromJson(response);
+  }
+  
+  @override
+  Future<void> editProfile(EditProfileParams editProfileParams) async{
+return await _apiConsumer.post(EndPoints.setProfile,queryParameters: editProfileParams.toJson());
+    
   }
   
 

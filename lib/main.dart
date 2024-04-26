@@ -15,9 +15,12 @@ import 'package:ejar_v/presentaion/owner/manager/processing_orders_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/my_products_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/my_subscription_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/subscription_cubit.dart';
+import 'package:ejar_v/presentaion/owner/screens/add_post_screen.dart';
 import 'package:ejar_v/presentaion/owner/screens/company_subscription_screen.dart';
 import 'package:ejar_v/presentaion/owner/widgets/profile_widget.dart';
-import 'package:ejar_v/presentaion/user/manager/cubit/get_profile_cubit.dart';
+import 'package:ejar_v/presentaion/user/manager/get_full_countries_cubit.dart';
+import 'package:ejar_v/presentaion/user/manager/get_full_country_cubit.dart';
+import 'package:ejar_v/presentaion/user/manager/get_profile_cubit.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,11 +67,13 @@ class MyApp extends StatelessWidget {
                     BlocProvider(create: (context) => getItMhamad<GetCategoryAttributesCubit>(),),
                     BlocProvider(create: (context) => getItMhamad<UpdateProductCubit>(),),
                     BlocProvider(create: (context) => getItMhamad<GetProfileCubit>(),),
+                    BlocProvider(create: (context) => getItMhamad<GetFullCountriesCubit>(),),
+                    BlocProvider(create: (context) => getItMhamad<GetFullCountryCubit>(),),
 
           BlocProvider(create: (context) => getIt<VisibilityPasswordCubit>(),),
         ],
         child: MaterialApp(
-          home: OwnerProfileScreen(),
+          home: AddPostScreen(),
         ),
       ),
     );

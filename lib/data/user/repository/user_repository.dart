@@ -1,6 +1,7 @@
 
 import 'package:dartz/dartz.dart';
 import 'package:ejar_v/core/network/network_info.dart';
+import 'package:ejar_v/core/params/edit_profile_params.dart';
 import 'package:ejar_v/core/params/get_full_city_params.dart';
 import 'package:ejar_v/core/params/get_full_country_params.dart';
 import 'package:ejar_v/data/model/network_exceptions.dart';
@@ -18,6 +19,7 @@ abstract class UserBaseRepository{
     Future<Either<NetworkExceptions,FullCountryEntity>> getFullCountry(GetFullCountryParams getFullCountryParams);
     Future<Either<NetworkExceptions,FullCityEntity>> getFullCity(GetFullCityParams getFullCityParams);
     Future<Either<NetworkExceptions,BaseProfileEntity>> getProfile();
+    Future<Either<NetworkExceptions,void>> editProfile(EditProfileParams editProfileParams);
 
 }
 @Singleton(as: UserBaseRepository)
@@ -88,6 +90,20 @@ class UserRepositoryImpl implements UserBaseRepository{
                 try{
       if(await _networkInfo.isConnected){
         final response = await _userBaseWebServices.getProfile();
+        return Right(response);
+      }else{
+        return const Left(NetworkExceptions.noInternetConnection());
+      }
+    } on Exception catch (ex){
+      return Left(NetworkExceptions.getDioException(ex));
+    }
+  }
+  
+  @override
+  Future<Either<NetworkExceptions, void>> editProfile(EditProfileParams editProfileParams) async{
+                  try{
+      if(await _networkInfo.isConnected){
+        final response = await _userBaseWebServices.editProfile(editProfileParams);
         return Right(response);
       }else{
         return const Left(NetworkExceptions.noInternetConnection());

@@ -20,174 +20,40 @@ class _MySubscriptionScreenState extends State<MySubscriptionScreen> {
     context.read<MySubscriptionCubit>().emitPostMySubscription();
     // TODO: implement initState
     super.initState();
-  }
-  Widget ColumnTableItem({required int index,required MySubscriptionEntity mysubscriptionEntity}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-
-          Text(
-            mysubscriptionEntity.subscriptions[index].startDate,
-            style: TextStyle(
-              color: AppColors.pureBlack,
-              fontFamily: 'bahnschrift',
-              fontSize: 16.sp,
-            ),
-          ),
-          Text(
-            mysubscriptionEntity.subscriptions[index].endDate,
-            style: TextStyle(
-              color: AppColors.pureBlack,
-              fontFamily: 'bahnschrift',
-              fontSize: 16.sp,
-            ),
-          ),
-          Text(
-            mysubscriptionEntity.subscriptions[index].value.toString(),
-            style: TextStyle(
-              color: AppColors.pureBlack,
-              fontFamily: 'bahnschrift',
-              fontSize: 16.sp,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildSubscriptionTable() {
-    return BlocConsumer<MySubscriptionCubit, MySubscriptionState>(
-    listener: (context, state) => state.whenOrNull(error: (NetworkExceptions exception) => Fluttertoast.showToast(
-                msg: NetworkExceptions.getErrorMessage(exception),
-                toastLength: Toast.LENGTH_SHORT),),
-     builder: (context, state) {
-        return state.when(loading:()=> const CupertinoActivityIndicator(),success: (mySubscriptionsEntity) {
-           return ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return ColumnTableItem(index:index,mysubscriptionEntity:mySubscriptionsEntity );
-          },
-          itemCount: mySubscriptionsEntity.subscriptions.length,
-        );
-        },error: (networkExceptions) => const SizedBox.shrink(),);
-       
-      },
-    );
-  }
-
-  @override
+  } @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
           'My Subscription',
           style: TextStyle(
-            color: AppColors.semiDarkGolden,
+            color: Colors.amberAccent[700],
             fontFamily: 'Bahnschrift',
-            fontSize: 20.sp,
+            fontSize: 20.0,
           ),
         ),
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {Navigator.pop(context);},
           icon: Icon(
             Icons.chevron_left,
-            color: AppColors.semiDarkGolden,
+            color: Colors.amberAccent[700],
           ),
-        ),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(1.0),
-          child: DividerItem(),
         ),
       ),
       body: Column(
         children: [
-          SpaceItem(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Text(
-              'Here We will show Your Subscription List',
-              style: TextStyle(
-                color: AppColors.mediumGolden1,
-                fontFamily: 'bahnschrift',
-                fontSize: 16.sp,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          SpaceItem(),
-          DividerItem(),
           Expanded(
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-              
-                      Container(
-                        height: 30.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5.r),
-                          border: Border.all(
-                            color: AppColors.mediumGolden1,
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Start Date',
-                            style: TextStyle(
-                              color: AppColors.mediumGolden1,
-                              fontFamily: 'bahnschrift',
-                              fontSize: 16.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: 30.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5.r),
-                          border: Border.all(
-                            color: AppColors.mediumGolden1,
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'End Date',
-                            style: TextStyle(
-                              color: AppColors.mediumGolden1,
-                              fontFamily: 'bahnschrift',
-                              fontSize: 16.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: 30.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5.r),
-                          border: Border.all(
-                            color: AppColors.mediumGolden1,
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Value',
-                            style: TextStyle(
-                              color: AppColors.mediumGolden1,
-                              fontFamily: 'bahnschrift',
-                              fontSize: 16.sp,
-                            ),
-                          ),
-                        ),
-                      ),
+                      infoCard('Start Date', Colors.greenAccent),
+                      infoCard('End Date', Colors.redAccent),
+                      infoCard('Value', Colors.blueAccent),
                     ],
                   ),
                 ),
@@ -197,36 +63,86 @@ class _MySubscriptionScreenState extends State<MySubscriptionScreen> {
               ],
             ),
           ),
-          // GestureDetector(
-          //   onTap: () {},
-          //   child: Container(
-          //     height: 40.h,
-          //     decoration: BoxDecoration(
-          //       gradient: LinearGradient(
-          //         colors: [
-          //           AppColors.mediumGolden1,
-          //           AppColors.mediumGolden2,
-          //           AppColors.mediumGolden1,
-          //         ],
-          //       ),
-          //       borderRadius: BorderRadius.only(
-          //         topRight: Radius.circular(37.r),
-          //         topLeft: Radius.circular(37.r),
-          //       ),
-          //     ),
-          //     child: Center(
-          //       child: Text(
-          //         'Done',
-          //         style: TextStyle(
-          //           fontSize: 17.sp,
-          //           color: AppColors.pureWhite,
-          //           fontFamily: 'Bahnschrift',
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // ),
         ],
+      ),
+    );
+  }
+
+  Widget infoCard(String title, Color color) {
+    return Container(
+      height: 60.0,
+      width: 120.0,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Center(
+        child: Text(
+          title,
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'Bahnschrift',
+            fontSize: 16.0,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildSubscriptionTable() {
+    return BlocConsumer<MySubscriptionCubit, MySubscriptionState>(
+      listener: (context, state) => state.whenOrNull(
+        error: (exception) => Fluttertoast.showToast(
+          msg: NetworkExceptions.getErrorMessage(exception),
+          toastLength: Toast.LENGTH_SHORT,
+        ),
+      ),
+      builder: (context, state) {
+        return state.when(
+          loading: () => const CupertinoActivityIndicator(),
+          success: (mySubscriptionsEntity) {
+            return ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return ColumnTableItem(index: index, mysubscriptionEntity: mySubscriptionsEntity);
+              },
+              itemCount: mySubscriptionsEntity.subscriptions.length,
+            );
+          },
+          error: (networkExceptions) => const SizedBox.shrink(),
+        );
+      },
+    );
+  }
+
+  Widget ColumnTableItem({required int index, required MySubscriptionEntity mysubscriptionEntity}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Card(
+        elevation: 4.0,
+        color: Colors.grey[100],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              subscriptionText(mysubscriptionEntity.subscriptions[index].startDate),
+              subscriptionText(mysubscriptionEntity.subscriptions[index].endDate),
+              subscriptionText(mysubscriptionEntity.subscriptions[index].value.toString()),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget subscriptionText(String data) {
+    return Text(
+      data,
+      style: TextStyle(
+        color: Colors.deepPurple,
+        fontFamily: 'Bahnschrift',
+        fontSize: 16.0,
       ),
     );
   }

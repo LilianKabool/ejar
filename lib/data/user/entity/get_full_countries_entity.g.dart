@@ -39,7 +39,7 @@ CountryEntity _$CountryEntityFromJson(Map<String, dynamic> json) =>
       cities: (json['cities'] as List<dynamic>)
           .map((e) => CityData.fromJson(e as Map<String, dynamic>))
           .toList(),
-      englishName: json['englishName'] as String,
+      englishName: json['name_en'] as String,
     );
 
 Map<String, dynamic> _$CountryEntityToJson(CountryEntity instance) =>
@@ -48,7 +48,7 @@ Map<String, dynamic> _$CountryEntityToJson(CountryEntity instance) =>
       'name': instance.name,
       'delete': instance.delete,
       'cities': instance.cities,
-      'englishName': instance.englishName,
+      'name_en': instance.englishName,
     };
 
 CityData _$CityDataFromJson(Map<String, dynamic> json) => CityData(
@@ -64,7 +64,7 @@ CityEntity _$CityEntityFromJson(Map<String, dynamic> json) => CityEntity(
       name: json['name'] as String,
       countryId: json['country_id'] as int,
       delete: json['delete'] as int,
-      englishName: json['englishName'] as String,
+      englishName: json['name_en'] as String,
       regions: (json['regions'] as List<dynamic>)
           .map((e) => Region.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -76,7 +76,7 @@ Map<String, dynamic> _$CityEntityToJson(CityEntity instance) =>
       'name': instance.name,
       'country_id': instance.countryId,
       'delete': instance.delete,
-      'englishName': instance.englishName,
+      'name_en': instance.englishName,
       'regions': instance.regions,
     };
 
@@ -86,7 +86,7 @@ Region _$RegionFromJson(Map<String, dynamic> json) => Region(
       countryId: json['country_id'] as int,
       cityId: json['city_id'] as int,
       delete: json['delete'] as int,
-      englishName: json['englishName'] as String,
+      englishName: json['name_en'] as String,
     );
 
 Map<String, dynamic> _$RegionToJson(Region instance) => <String, dynamic>{
@@ -95,5 +95,5 @@ Map<String, dynamic> _$RegionToJson(Region instance) => <String, dynamic>{
       'country_id': instance.countryId,
       'city_id': instance.cityId,
       'delete': instance.delete,
-      'englishName': instance.englishName,
+      'name_en': instance.englishName,
     };
