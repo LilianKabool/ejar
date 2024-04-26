@@ -5,6 +5,7 @@ import 'package:ejar_v/presentaion/auth/screens/main_screen.dart';
 import 'package:ejar_v/presentaion/auth/screens/splash_screen.dart';
 import 'package:ejar_v/presentaion/owner/manager/active_subscription_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/add_photo_to_product_cubit.dart';
+import 'package:ejar_v/presentaion/owner/manager/cubit/edit_controller_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/update_product_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/set_card_info_cubit.dart';
 import 'package:ejar_v/presentaion/owner/manager/get_category_attributes_cubit.dart';
