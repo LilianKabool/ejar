@@ -1,9 +1,8 @@
-
-import '../../../core/constant/colors.dart';
 import 'package:ejar_v/presentaion/auth/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/constant/colors.dart';
 signUpTextButton(context) {
   return TextButton(
     onPressed: () {

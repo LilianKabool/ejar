@@ -8,8 +8,8 @@ class UpdateProductParams {
   final String englishDescription;
   final double price;
   final File photo;
-  final List<int> attributeIds;
-  final List<String> attributeValues;
+  // final List<int> attributeIds;
+  // final List<String> attributeValues;
   final int countryId;
   final int cityId;
   final String startDate;
@@ -22,8 +22,8 @@ class UpdateProductParams {
     required this.englishDescription,
     required this.price,
     required this.photo,
-    required this.attributeIds,
-    required this.attributeValues,
+    // required this.attributeIds,
+    // required this.attributeValues,
     required this.countryId,
     required this.cityId,
     required this.startDate,
@@ -38,8 +38,8 @@ class UpdateProductParams {
       'description_en': englishDescription,
       'price': price,
       'photo': photo.path,
-      'attribute_ids': attributeIds,
-      'attribute_value': attributeValues,
+      // 'attribute_ids': attributeIds,
+      // 'attribute_value': attributeValues,
       'country_id': countryId,
       'city_id': cityId,
       'start_date': startDate,

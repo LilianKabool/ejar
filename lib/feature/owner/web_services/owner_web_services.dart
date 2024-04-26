@@ -115,8 +115,8 @@ class OwnerWebServicesImpl implements OwnerBaseWebServices{
       'country_id': updateProductParams.countryId,
       'city_id': updateProductParams.cityId,
       'start_date': updateProductParams.startDate,
-      'attribute_ids': updateProductParams.attributeIds,
-      'attribute_values': updateProductParams.attributeValues,
+      // 'attribute_ids': updateProductParams.attributeIds,
+      // 'attribute_values': updateProductParams.attributeValues,
       'photo': await MultipartFile.fromFile(updateProductParams.photo.path),
     });
 

@@ -7,14 +7,25 @@ import 'package:injectable/injectable.dart';
 import '../../../feature/owner/entity/base_entity.dart';
 import '../../../feature/owner/repository/owner_respository.dart';
 import '../../../network_exceptions.dart';
+
 part 'update_product_state.dart';
+
 part 'update_product_cubit.freezed.dart';
+
 @injectable
 class UpdateProductCubit extends Cubit<UpdateProductState> {
-final OwnerBaseRepository _ownerBaseRepository;
-  UpdateProductCubit(this._ownerBaseRepository) : super(const UpdateProductState.initial());
-  Future<void> emitUpdateProduct({required UpdateProductParams updateProductParams})async{
+  final OwnerBaseRepository _ownerBaseRepository;
+
+  UpdateProductCubit(this._ownerBaseRepository)
+      : super(const UpdateProductState.initial());
+
+  Future<void> emitUpdateProduct(
+      {required UpdateProductParams updateProductParams}) async {
     emit(const UpdateProductState.loading());
-    final response = await _ownerBaseRepository.updateProduct(updateProductParams);
-    response.fold((l) => emit(UpdateProductState.error(l)), (r) => emit(UpdateProductState.success(r)));
-  }}
+    final response =
+        await _ownerBaseRepository.updateProduct(updateProductParams);
+    response.fold((l) => emit(UpdateProductState.error(l)),
+        (r) => emit(UpdateProductState.success(r)));
+  }
+
+}

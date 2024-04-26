@@ -13,7 +13,6 @@ import 'package:ejar_v/feature/auth/entity/reset_password/reset_password_entity.
 import 'package:injectable/injectable.dart';
 import '../../../core/network/network_info.dart';
 import '../../../network_exceptions.dart';
-import '../entity/reset_password/reset_password_entity.dart';
 import '../entity/verify_otp/verify_otp_entity.dart';
 import '../web_services/auth_web_services.dart';
 

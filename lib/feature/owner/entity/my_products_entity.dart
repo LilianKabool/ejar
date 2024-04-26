@@ -5,12 +5,12 @@ part 'my_products_entity.g.dart';
 class BaseMyProductEntity{
   @JsonKey(name: "message")
   final String message;
-  @JsonKey(name: "data")
+    @JsonKey(name: "data")
   final List<ProductEntity> products;
 
   BaseMyProductEntity(this.message, this.products);
 
-  factory BaseMyProductEntity.fromJson(Map<String, dynamic> json) =>
+   factory BaseMyProductEntity.fromJson(Map<String, dynamic> json) =>
       _$BaseMyProductEntityFromJson(json);
 
   Map<String, dynamic> toJson() => _$BaseMyProductEntityToJson(this);
@@ -57,7 +57,7 @@ class ProductData {
   @JsonKey(name: 'start_date')
   final String startDate;
   @JsonKey(name: 'end_date')
-  final String endDate;
+  final String? endDate;
   @JsonKey(name: 'category_id')
   final int categoryId;
   @JsonKey(name: 'image')
@@ -99,10 +99,10 @@ class Attribute {
   final int productId;
   @JsonKey(name: 'attribute_id')
   final int attributeId;
-  @JsonKey(name: 'value')
+    @JsonKey(name: 'value')
 
   final String value;
-  @JsonKey(name: 'name')
+    @JsonKey(name: 'name')
 
   final String name;
   @JsonKey(name: 'name_en')
@@ -111,7 +111,7 @@ class Attribute {
   final String dataType;
   @JsonKey(name: 'data_value')
   final String dataValue;
-  @JsonKey(name: 'icon')
+    @JsonKey(name: 'icon')
 
   final String icon;
 
@@ -125,12 +125,12 @@ class Attribute {
 }
 @JsonSerializable()
 class Photo {
-  @JsonKey(name: 'id')
+    @JsonKey(name: 'id')
 
   final int id;
   @JsonKey(name: 'product_id')
   final int productId;
-  @JsonKey(name: 'photo')
+    @JsonKey(name: 'photo')
 
   final String photo;
 

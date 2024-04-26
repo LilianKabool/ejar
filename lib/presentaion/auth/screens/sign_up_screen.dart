@@ -7,8 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../components.dart';
-import '../../../core/constant/colors.dart';
-import '../../../network_exceptions.dart';
+import '../../../core/constant/colors.dart';import '../../../network_exceptions.dart';
 import '../manager/check_box/check_box_cubit.dart';
 import '../manager/check_box/check_box_state.dart';
 import '../manager/drop_down_button/drop_down_button_cubit.dart';

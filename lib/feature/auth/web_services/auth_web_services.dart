@@ -2,7 +2,7 @@ import 'package:ejar_v/core/api/api_consumer.dart';
 import 'package:ejar_v/core/constant/end_points.dart';
 import 'package:ejar_v/core/params/Login_params.dart';
 import 'package:ejar_v/core/params/forget_password_params.dart';
-import 'package:ejar_v/core/params/get_subscription_params.dart';
+
 import 'package:ejar_v/core/params/register_params.dart';
 import 'package:ejar_v/core/params/resend_otp_params.dart';
 import 'package:ejar_v/core/params/reset_password_params.dart';

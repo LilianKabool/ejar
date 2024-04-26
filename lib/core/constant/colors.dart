@@ -18,11 +18,4 @@ class AppColors {
   static const Color semiBlack = Color.fromRGBO(27,27,27, 1);
   static const Color pureBlack = Colors.black;
   static const Color pureWhite = Colors.white;
-  static const  gradiante =  LinearGradient(
-    colors: [
-      AppColors.semiDarkGolden,
-      AppColors.mediumGolden1,
-      AppColors.mediumGolden2,
-    ],
-  );
 }

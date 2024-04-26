@@ -1,6 +1,5 @@
 import 'package:ejar_v/components.dart';
-import '../../../core/constant/colors.dart';
-import 'package:ejar_v/presentaion/auth/widgets/signup_textButton.dart';
+import '../../../core/constant/colors.dart';import 'package:ejar_v/presentaion/auth/widgets/signup_textButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

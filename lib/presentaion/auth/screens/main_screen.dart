@@ -1,7 +1,6 @@
 import 'package:ejar_v/presentaion/auth/screens/resend_otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../core/constant/colors.dart';
 import 'login_screen.dart';
 

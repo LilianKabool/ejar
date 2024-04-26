@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../components.dart';
-import '../../../core/constant/colors.dart';
-import '../../../network_exceptions.dart';
+import '../../../core/constant/colors.dart';import '../../../network_exceptions.dart';
 import '../manager/reset_password/reset_password_cubit.dart';
 import '../manager/reset_password/reset_password_state.dart';
 import '../manager/visibality_password/visibility_password_cubit.dart';

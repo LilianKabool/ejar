@@ -15,6 +15,7 @@ import '../entity/full_city_entity.dart';
 import '../entity/full_country_entity.dart';
 import '../entity/get_full_country_entity.dart';
 import '../entity/get_full_currencies_entity.dart';
+import '../entity/profile_entity.dart';
 import '../entity/search_product_entity.dart';
 import '../entity/show_all_category_entity.dart';
 import '../entity/show_product_photo_entity.dart';
@@ -31,6 +32,8 @@ abstract class UserBaseRepository{
   Future<Either<NetworkExceptions,GetFullCurrenciesEntity>> getFullCurrencies();
   Future<Either<NetworkExceptions,FullCountryEntity>> getFullCountry(GetFullCountryParams getFullCountryParams);
   Future<Either<NetworkExceptions,FullCityEntity>> getFullCity(GetFullCityParams getFullCityParams);
+  Future<Either<NetworkExceptions,BaseProfileEntity>> getProfile();
+
 }
 @Singleton(as: UserBaseRepository)
 class UserRepositoryImpl implements UserBaseRepository{
@@ -163,5 +166,17 @@ class UserRepositoryImpl implements UserBaseRepository{
       return Left(NetworkExceptions.getDioException(ex));
     }
   }
-
+  @override
+  Future<Either<NetworkExceptions, BaseProfileEntity>> getProfile() async{
+    try{
+      if(await _networkInfo.isConnected){
+        final response = await _userBaseWebServices.getProfile();
+        return Right(response);
+      }else{
+        return const Left(NetworkExceptions.noInternetConnection());
+      }
+    } on Exception catch (ex){
+      return Left(NetworkExceptions.getDioException(ex));
+    }
+  }
 }

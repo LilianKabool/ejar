@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'my_subscription_cubit.dart';
+part of 'get_profile_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,26 +15,25 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$MySubscriptionState {
+mixin _$GetProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(MySubscriptionEntity mySubscriptionsEntity)
-        success,
+    required TResult Function(BaseProfileEntity baseProfileEntity) success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(MySubscriptionEntity mySubscriptionsEntity)? success,
+    TResult? Function(BaseProfileEntity baseProfileEntity)? success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(MySubscriptionEntity mySubscriptionsEntity)? success,
+    TResult Function(BaseProfileEntity baseProfileEntity)? success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) =>
@@ -64,16 +63,16 @@ mixin _$MySubscriptionState {
 }
 
 /// @nodoc
-abstract class $MySubscriptionStateCopyWith<$Res> {
-  factory $MySubscriptionStateCopyWith(
-          MySubscriptionState value, $Res Function(MySubscriptionState) then) =
-      _$MySubscriptionStateCopyWithImpl<$Res, MySubscriptionState>;
+abstract class $GetProfileStateCopyWith<$Res> {
+  factory $GetProfileStateCopyWith(
+          GetProfileState value, $Res Function(GetProfileState) then) =
+      _$GetProfileStateCopyWithImpl<$Res, GetProfileState>;
 }
 
 /// @nodoc
-class _$MySubscriptionStateCopyWithImpl<$Res, $Val extends MySubscriptionState>
-    implements $MySubscriptionStateCopyWith<$Res> {
-  _$MySubscriptionStateCopyWithImpl(this._value, this._then);
+class _$GetProfileStateCopyWithImpl<$Res, $Val extends GetProfileState>
+    implements $GetProfileStateCopyWith<$Res> {
+  _$GetProfileStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -90,7 +89,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$MySubscriptionStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$GetProfileStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -104,7 +103,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'MySubscriptionState.loading()';
+    return 'GetProfileState.loading()';
   }
 
   @override
@@ -120,8 +119,7 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(MySubscriptionEntity mySubscriptionsEntity)
-        success,
+    required TResult Function(BaseProfileEntity baseProfileEntity) success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) {
     return loading();
@@ -131,7 +129,7 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(MySubscriptionEntity mySubscriptionsEntity)? success,
+    TResult? Function(BaseProfileEntity baseProfileEntity)? success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) {
     return loading?.call();
@@ -141,7 +139,7 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(MySubscriptionEntity mySubscriptionsEntity)? success,
+    TResult Function(BaseProfileEntity baseProfileEntity)? success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) {
@@ -186,7 +184,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements MySubscriptionState {
+abstract class Loading implements GetProfileState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -196,12 +194,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({MySubscriptionEntity mySubscriptionsEntity});
+  $Res call({BaseProfileEntity baseProfileEntity});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$MySubscriptionStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$GetProfileStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -210,13 +208,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mySubscriptionsEntity = null,
+    Object? baseProfileEntity = null,
   }) {
     return _then(_$SuccessImpl(
-      null == mySubscriptionsEntity
-          ? _value.mySubscriptionsEntity
-          : mySubscriptionsEntity // ignore: cast_nullable_to_non_nullable
-              as MySubscriptionEntity,
+      null == baseProfileEntity
+          ? _value.baseProfileEntity
+          : baseProfileEntity // ignore: cast_nullable_to_non_nullable
+              as BaseProfileEntity,
     ));
   }
 }
@@ -224,14 +222,14 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.mySubscriptionsEntity);
+  const _$SuccessImpl(this.baseProfileEntity);
 
   @override
-  final MySubscriptionEntity mySubscriptionsEntity;
+  final BaseProfileEntity baseProfileEntity;
 
   @override
   String toString() {
-    return 'MySubscriptionState.success(mySubscriptionsEntity: $mySubscriptionsEntity)';
+    return 'GetProfileState.success(baseProfileEntity: $baseProfileEntity)';
   }
 
   @override
@@ -239,12 +237,12 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.mySubscriptionsEntity, mySubscriptionsEntity) ||
-                other.mySubscriptionsEntity == mySubscriptionsEntity));
+            (identical(other.baseProfileEntity, baseProfileEntity) ||
+                other.baseProfileEntity == baseProfileEntity));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, mySubscriptionsEntity);
+  int get hashCode => Object.hash(runtimeType, baseProfileEntity);
 
   @JsonKey(ignore: true)
   @override
@@ -256,33 +254,32 @@ class _$SuccessImpl implements Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(MySubscriptionEntity mySubscriptionsEntity)
-        success,
+    required TResult Function(BaseProfileEntity baseProfileEntity) success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) {
-    return success(mySubscriptionsEntity);
+    return success(baseProfileEntity);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(MySubscriptionEntity mySubscriptionsEntity)? success,
+    TResult? Function(BaseProfileEntity baseProfileEntity)? success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) {
-    return success?.call(mySubscriptionsEntity);
+    return success?.call(baseProfileEntity);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(MySubscriptionEntity mySubscriptionsEntity)? success,
+    TResult Function(BaseProfileEntity baseProfileEntity)? success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(mySubscriptionsEntity);
+      return success(baseProfileEntity);
     }
     return orElse();
   }
@@ -322,11 +319,11 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements MySubscriptionState {
-  const factory Success(final MySubscriptionEntity mySubscriptionsEntity) =
+abstract class Success implements GetProfileState {
+  const factory Success(final BaseProfileEntity baseProfileEntity) =
       _$SuccessImpl;
 
-  MySubscriptionEntity get mySubscriptionsEntity;
+  BaseProfileEntity get baseProfileEntity;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -345,7 +342,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$MySubscriptionStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$GetProfileStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -383,7 +380,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'MySubscriptionState.error(networkExceptions: $networkExceptions)';
+    return 'GetProfileState.error(networkExceptions: $networkExceptions)';
   }
 
   @override
@@ -408,8 +405,7 @@ class _$ErrorImpl implements Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(MySubscriptionEntity mySubscriptionsEntity)
-        success,
+    required TResult Function(BaseProfileEntity baseProfileEntity) success,
     required TResult Function(NetworkExceptions networkExceptions) error,
   }) {
     return error(networkExceptions);
@@ -419,7 +415,7 @@ class _$ErrorImpl implements Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(MySubscriptionEntity mySubscriptionsEntity)? success,
+    TResult? Function(BaseProfileEntity baseProfileEntity)? success,
     TResult? Function(NetworkExceptions networkExceptions)? error,
   }) {
     return error?.call(networkExceptions);
@@ -429,7 +425,7 @@ class _$ErrorImpl implements Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(MySubscriptionEntity mySubscriptionsEntity)? success,
+    TResult Function(BaseProfileEntity baseProfileEntity)? success,
     TResult Function(NetworkExceptions networkExceptions)? error,
     required TResult orElse(),
   }) {
@@ -474,7 +470,7 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements MySubscriptionState {
+abstract class Error implements GetProfileState {
   const factory Error(final NetworkExceptions networkExceptions) = _$ErrorImpl;
 
   NetworkExceptions get networkExceptions;

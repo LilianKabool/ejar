@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 import '../../../components.dart';
 import '../../../core/constant/colors.dart';
@@ -293,16 +293,16 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
-  void showToast(String message) {
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.red,
-      textColor: Colors.white,
-      fontSize: 16.0,
-    );
+  // void showToast(String message) {
+  //   Fluttertoast.showToast(
+  //     msg: message,
+  //     toastLength: Toast.LENGTH_SHORT,
+  //     gravity: ToastGravity.BOTTOM,
+  //     timeInSecForIosWeb: 1,
+  //     backgroundColor: Colors.red,
+  //     textColor: Colors.white,
+  //     fontSize: 16.0,
+  //   );
   }
   showAlertDialog(BuildContext context, message) {
     AlertDialog alert = AlertDialog(
@@ -317,4 +317,4 @@ class LoginScreen extends StatelessWidget {
       },
     );
   }
-}
+
